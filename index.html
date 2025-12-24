@@ -3,75 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA Grup | Profesyonel Çözümler</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>TİMA Grup | Lüks Mimari</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark: #000; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--dark); color: white; overflow-x: hidden; }
+        :root { --gold: #d4af37; --black: #000; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--black); color: white; overflow: hidden; }
         
-        /* Arka Plan ve Header */
         header { 
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600'); 
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600'); 
             background-size: cover; background-position: center; text-align: center;
         }
 
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 3.5em; color: var(--gold); margin-bottom: 50px; letter-spacing: 5px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 3.5em; color: var(--gold); margin-bottom: 60px; letter-spacing: 8px; }
 
-        /* Yeni Hizmet Butonları */
-        .service-container { display: flex; flex-direction: column; gap: 20px; width: 80%; max-width: 400px; }
+        .btn-group { display: flex; flex-direction: column; gap: 25px; width: 85%; max-width: 450px; }
         
-        .service-btn {
-            padding: 20px;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            background: rgba(212, 175, 55, 0.05);
+        .nav-btn {
+            padding: 22px; border: 1px solid var(--gold); color: var(--gold);
+            text-decoration: none; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; transition: 0.4s; background: transparent;
         }
 
-        .service-btn:hover { background: var(--gold); color: black; transform: scale(1.02); }
+        .nav-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
 
-        /* Sabit WhatsApp Butonu */
-        .whatsapp-fixed {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: #25d366; color: white;
-            width: 65px; height: 65px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            z-index: 9999; text-decoration: none; transition: 0.3s;
-        }
-        .whatsapp-fixed:hover { transform: scale(1.1); }
-
-        footer { position: absolute; bottom: 20px; font-size: 0.8em; color: #444; }
+        footer { position: absolute; bottom: 30px; font-size: 0.7em; color: #555; letter-spacing: 2px; }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo-text">TİMA GRUP</div>
-        
-        <div class="service-container">
-            <a href="https://wa.me/905557999111?text=Kentsel%20Dönüşüm%20hakkında%20bilgi%20almak%20istiyorum." class="service-btn">
-                Kentsel Dönüşüm
-            </a>
-            <a href="https://wa.me/905557999111?text=Dış%20Cephe%20Kaplama%20hakkında%20bilgi%20almak%20istiyorum." class="service-btn">
-                Dış Cephe Kaplama
-            </a>
+        <div class="logo">TİMA GRUP</div>
+        <div class="btn-group">
+            <a href="kentsel.html" class="nav-btn">Kentsel Dönüşüm</a>
+            <a href="discephe.html" class="nav-btn">Dış Cephe Kaplama</a>
         </div>
-
-        <footer>© 2025 Tima Grup</footer>
+        <footer>PRESTİJ VE GÜVENİN ADRESİ</footer>
     </header>
-
-    <a href="https://wa.me/905557999111" class="whatsapp-fixed" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
 </body>
 </html>
-
