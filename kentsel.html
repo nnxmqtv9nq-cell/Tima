@@ -1,61 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA Asistan - Kentsel Dönüşüm</title>
+    <title>TİMA Asistan - Fatih Mevzuat</title>
     <style>
-        body { background: #000; color: #d4af37; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; margin: 0; }
-        .ai-ring { width: 120px; height: 120px; border: 3px solid #d4af37; border-radius: 50%; box-shadow: 0 0 20px #d4af37; animation: pulse 1.5s infinite; margin-bottom: 20px; }
+        body { background: #fff; color: #1a1a1a; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; margin: 0; }
+        .ai-ring { width: 120px; height: 120px; border: 3px solid #b8860b; border-radius: 50%; animation: pulse 1.5s infinite; margin-bottom: 20px; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.6; } }
-        .btn-main { background: #d4af37; border: none; padding: 15px 30px; font-weight: bold; cursor: pointer; border-radius: 50px; color: black; font-size: 1.1em; margin-bottom: 20px; transition: 0.3s; }
-        .btn-wa { background: #25d366; color: white; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; display: none; transition: 0.3s; }
-        .back { margin-top: 30px; color: #888; text-decoration: none; font-size: 0.8em; }
+        .btn-main { background: #1a1a1a; border: none; padding: 18px 35px; font-weight: bold; cursor: pointer; border-radius: 50px; color: white; font-size: 1.1em; margin-bottom: 20px; }
+        .btn-wa { background: #25d366; color: white; text-decoration: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; display: none; margin-top: 10px; }
+        .back { margin-top: 30px; color: #666; text-decoration: none; font-size: 0.9em; border-bottom: 1px solid #ccc; }
     </style>
 </head>
 <body>
     <div class="ai-ring"></div>
-    <h2 id="status">Kentsel Dönüşüm Uzmanı</h2>
-    
-    <button class="btn-main" onclick="asistanKonus()">BİLGİ ALMAK İÇİN DOKUNUN</button>
-    
-    <a id="waButton" href="https://wa.me/905320000000?text=Kentsel%20dönüşüm%20hakkında%20teklif%20almak%20istiyorum." class="btn-wa">
-        WhatsApp'tan Teklif Al
-    </a>
-
+    <h2 id="status">Fatih Kentsel Dönüşüm Uzmanı</h2>
+    <button class="btn-main" onclick="asistanKonus()">BİLGİLERİ SESLİ DİNLE</button>
+    <br>
+    <a id="waButton" href="https://wa.me/905320000000?text=Fatih%20kentsel%20dönüşüm%20mevzuatı%20hakkında%20bilgi%20almak%20istiyorum." class="btn-wa">WhatsApp'tan Teklif Al</a>
     <a href="index.html" class="back">← Ana Sayfaya Dön</a>
 
     <script>
         function asistanKonus() {
             const msg = new SpeechSynthesisUtterance();
-            msg.text = <script>
-    function asistanKonus() {
-        const msg = new SpeechSynthesisUtterance();
-        
-        // FATİH ÖZEL MEVZUAT METNİ
-        msg.text = "Tima Grup Fatih Kentsel Dönüşüm Bilgilendirme Hattına Hoş Geldiniz. İstanbul Fatih bölgesindeki binalarınız için güncel mevzuat şu şekildedir: Birincisi, Fatih genelinde binaların büyük çoğunluğu sit alanı veya tarihi eser komşuluğundadır. Bu sebeple projelerimizi Anıtlar Kurulu onayına uygun şekilde yürütüyoruz. İkincisi, yeni yasaya göre artık üçte iki çoğunluk değil, yüzde elli artı bir uzlaşma ile inşaat kararı alınabilmektedir. Üçüncüsü, Yarısı Bizden kampanyası kapsamında devletimiz konut başına bir buçuk milyon liraya varan hibe ve kredi desteği sunmaktadır. Tima Grup olarak Fatih'teki mülkleriniz için ücretsiz risk analizi ve hukuki süreç takibi yapmaktayız. Hemen bilgi almak için aşağıdaki WhatsApp butonuna tıklayabilirsiniz.";
-        
-        msg.lang = 'tr-TR';
-        msg.pitch = 1;
-        msg.rate = 1.2; // İstediğin gibi bir tık yavaşlattık (1.2 akıcı ve anlaşılırdır)
-        
-        window.speechSynthesis.speak(msg);
-        document.getElementById('status').innerText = "Fatih Mevzuat Bilgisi Veriliyor...";
-        
-        document.getElementById('waButton').style.display = 'inline-block';
-    }
-</script>
-
+            msg.text = "Tima Grup Fatih Kentsel Dönüşüm Bilgilendirme Hattına Hoş Geldiniz. Fatih bölgesindeki binalarınız için mevzuat şöyledir: Birincisi, sit alanı ve tarihi eser komşuluğu nedeniyle projelerimizi Anıtlar Kurulu onayına uygun yürütüyoruz. İkincisi, yeni yasaya göre yüzde elli artı bir uzlaşma ile inşaat kararı alabiliyoruz. Üçüncüsü, Yarısı Bizden kampanyası ile devletimiz konut başına bir buçuk milyon liraya varan destek sunmaktadır. Tima Grup olarak ücretsiz risk analizi yapmaktayız. Hemen bilgi almak için aşağıdaki yeşil butona tıklayabilirsiniz.";
             msg.lang = 'tr-TR';
-            msg.rate = 1.4; // Hızlandırıldı
-            
+            msg.rate = 1.2; 
             window.speechSynthesis.speak(msg);
-            document.getElementById('status').innerText = "Asistan Anlatıyor...";
-            
-            // Konuşma başlayınca WhatsApp butonunu göster
+            document.getElementById('status').innerText = "Asistan Bilgi Veriyor...";
             document.getElementById('waButton').style.display = 'inline-block';
         }
     </script>
 </body>
 </html>
+
