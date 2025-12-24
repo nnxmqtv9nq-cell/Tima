@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA Grup | Lüks Mimari</title>
+    <title>TİMA Grup | Prestijli Mimari</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --black: #000; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--black); color: white; overflow: hidden; }
+        :root { --gold: #b8860b; --black: #1a1a1a; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #fff; color: var(--black); overflow: hidden; }
         
         header { 
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600'); 
+            /* Açık renkli, izokobant/modern inşaat temalı lüks görsel */
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600'); 
             background-size: cover; background-position: center; text-align: center;
         }
 
-        .logo { font-family: 'Playfair Display', serif; font-size: 3.5em; color: var(--gold); margin-bottom: 60px; letter-spacing: 8px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 3.8em; color: var(--black); margin-bottom: 50px; letter-spacing: 10px; font-weight: bold; }
+        .logo span { color: var(--gold); }
 
-        .btn-group { display: flex; flex-direction: column; gap: 25px; width: 85%; max-width: 450px; }
+        .btn-group { display: flex; flex-direction: column; gap: 20px; width: 85%; max-width: 450px; }
         
         .nav-btn {
-            padding: 22px; border: 1px solid var(--gold); color: var(--gold);
+            padding: 20px; border: 2px solid var(--black); color: var(--black);
             text-decoration: none; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 2px; transition: 0.4s; background: transparent;
+            letter-spacing: 2px; transition: 0.4s; background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
         }
 
-        .nav-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .nav-btn:hover { background: var(--black); color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-3px); }
 
-        footer { position: absolute; bottom: 30px; font-size: 0.7em; color: #555; letter-spacing: 2px; }
+        footer { position: absolute; bottom: 30px; font-size: 0.75em; color: #666; letter-spacing: 3px; font-weight: 600; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">TİMA GRUP</div>
+        <div class="logo">TİMA <span>GRUP</span></div>
         <div class="btn-group">
             <a href="kentsel.html" class="nav-btn">Kentsel Dönüşüm</a>
             <a href="discephe.html" class="nav-btn">Dış Cephe Kaplama</a>
@@ -41,3 +44,4 @@
     </header>
 </body>
 </html>
+
