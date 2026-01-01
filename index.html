@@ -3,45 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA Grup | Prestijli Mimari</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>TİMA İnşaat | Geleceğin Altın Standartları</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --gold: #b8860b; --black: #1a1a1a; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #fff; color: var(--black); overflow: hidden; }
-        
-        header { 
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            /* Açık renkli, izokobant/modern inşaat temalı lüks görsel */
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600'); 
-            background-size: cover; background-position: center; text-align: center;
-        }
-
-        .logo { font-family: 'Playfair Display', serif; font-size: 3.8em; color: var(--black); margin-bottom: 50px; letter-spacing: 10px; font-weight: bold; }
-        .logo span { color: var(--gold); }
-
-        .btn-group { display: flex; flex-direction: column; gap: 20px; width: 85%; max-width: 450px; }
-        
-        .nav-btn {
-            padding: 20px; border: 2px solid var(--black); color: var(--black);
-            text-decoration: none; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 2px; transition: 0.4s; background: rgba(255,255,255,0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .nav-btn:hover { background: var(--black); color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-3px); }
-
-        footer { position: absolute; bottom: 30px; font-size: 0.75em; color: #666; letter-spacing: 3px; font-weight: 600; }
+        body { background-color: #0a0a0a; color: white; font-family: 'Inter', sans-serif; }
+        .gold-text { color: #d4af37; }
+        .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%); }
+        .hero-zoom { transition: transform 20s linear; }
+        .hero-zoom:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">TİMA <span>GRUP</span></div>
-        <div class="btn-group">
-            <a href="kentsel.html" class="nav-btn">Kentsel Dönüşüm</a>
-            <a href="discephe.html" class="nav-btn">Dış Cephe Kaplama</a>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-10 py-6 bg-black/50 backdrop-blur-md">
+        <div class="text-2xl font-bold tracking-widest gold-text">TİMA İNŞAAT</div>
+        <div class="hidden md:flex space-x-8 font-light tracking-wide uppercase text-sm">
+            <a href="#" class="hover:text-yellow-500 transition">Projeler</a>
+            <a href="#" class="hover:text-yellow-500 transition">Hakkımızda</a>
+            <a href="#" class="hover:text-yellow-500 transition">İletişim</a>
         </div>
-        <footer>PRESTİJ VE GÜVENİN ADRESİ</footer>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center hero-zoom" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'); opacity: 0.6;"></div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                Geleceği <span class="gold-text italic">Altın Standartlarla</span> <br>İnşa Ediyoruz.
+            </h1>
+            <p class="text-xl md:text-2xl font-light text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Şehrin kalbinde, güvenle yükselen modern yaşam alanları. Kentsel dönüşümde lüksün ve estetiğin yeni adı.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button class="gold-bg text-black px-12 py-4 rounded-full font-bold text-lg hover:brightness-110 transition shadow-2xl">
+                    Projelerimizi Keşfedin
+                </button>
+                <button class="border border-white/30 backdrop-blur-md text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition">
+                    Bizi Arayın
+                </button>
+            </div>
+        </div>
     </header>
+
+    <section class="py-24 px-10 bg-[#0f0f0f]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-16 text-center">
+            <div>
+                <h3 class="gold-text text-4xl font-bold mb-4">01.</h3>
+                <h4 class="text-xl font-semibold mb-2 uppercase">Modern Mimari</h4>
+                <p class="text-gray-500 font-light">Sadece bina değil, şehrin silüetini değiştiren eserler tasarlıyoruz.</p>
+            </div>
+            <div>
+                <h3 class="gold-text text-4xl font-bold mb-4">02.</h3>
+                <h4 class="text-xl font-semibold mb-2 uppercase">Güvenli Gelecek</h4>
+                <p class="text-gray-500 font-light">En son teknoloji ve en sağlam malzemelerle depreme dayanıklı yuvalar.</p>
+            </div>
+            <div>
+                <h3 class="gold-text text-4xl font-bold mb-4">03.</h3>
+                <h4 class="text-xl font-semibold mb-2 uppercase">Lüks Detaylar</h4>
+                <p class="text-gray-500 font-light">Her santimetrekaresinde konforu ve prestiji hissedeceksiniz.</p>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
-
