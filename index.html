@@ -3,56 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA Proje | Sadece Avrupa Yakası Kentsel Dönüşüm</title>
+    <title>TİMA Proje | Fatih Kentsel Dönüşüm</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base */
+        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #1a1a1a;
             background-color: #fefefe;
             line-height: 1.7;
-            font-weight: 300;
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            color: #1a1a1a;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
             letter-spacing: -0.5px;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 40px;
         }
         
-        .section-padding {
-            padding: 100px 0;
-        }
-        
-        /* Header - Minimal & Lux */
-        .main-header {
+        /* HEADER - ULTRA MINIMAL */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             z-index: 1000;
+            padding: 30px 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .header.scrolled {
             padding: 20px 0;
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
         }
         
         .header-content {
@@ -62,70 +68,73 @@
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
             color: #1a1a1a;
+            text-decoration: none;
             letter-spacing: -1px;
         }
         
         .logo span {
-            color: #b99d6e;
+            color: #c19a5b;
             font-weight: 400;
         }
         
-        .contact-header {
+        .nav {
             display: flex;
-            align-items: center;
-            gap: 30px;
+            gap: 50px;
         }
         
-        .phone-number {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a1a1a;
+        .nav a {
+            color: #333;
             text-decoration: none;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-        
-        .phone-number:hover {
-            color: #b99d6e;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
+            font-weight: 400;
             font-size: 15px;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             position: relative;
+            transition: color 0.3s;
         }
         
-        .nav-links a:hover {
-            color: #b99d6e;
-        }
-        
-        .nav-links a:after {
+        .nav a:after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 1px;
-            background-color: #b99d6e;
+            background-color: #c19a5b;
             transition: width 0.3s;
         }
         
-        .nav-links a:hover:after {
+        .nav a:hover {
+            color: #c19a5b;
+        }
+        
+        .nav a:hover:after {
             width: 100%;
+        }
+        
+        .phone-number {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .phone-number:before {
+            content: '📞';
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+        
+        .phone-number:hover {
+            color: #c19a5b;
         }
         
         .mobile-menu-btn {
@@ -137,113 +146,109 @@
             cursor: pointer;
         }
         
-        /* Hero Section - Lux Minimal */
-        .hero-section {
+        /* HERO SECTION - FULL SCREEN LUXURY */
+        .hero {
             height: 100vh;
-            min-height: 800px;
+            min-height: 900px;
             position: relative;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.5)), 
-                        url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.4)), 
+                        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            margin-top: 80px;
+            margin-top: 100px;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
+            padding-left: 100px;
         }
         
         .hero-subtitle {
-            font-size: 18px;
+            font-size: 16px;
             letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             font-weight: 400;
+            font-family: 'Inter', sans-serif;
         }
         
         .hero-title {
-            font-size: 64px;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            color: white;
-            font-weight: 700;
+            font-size: 76px;
+            line-height: 1.05;
+            margin-bottom: 40px;
+            font-weight: 500;
         }
         
         .hero-title span {
-            color: #b99d6e;
-            font-weight: 600;
+            color: #c19a5b;
+            font-style: italic;
+            font-weight: 400;
         }
         
         .hero-description {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1.8;
-            margin-bottom: 50px;
-            max-width: 600px;
+            margin-bottom: 60px;
+            max-width: 700px;
             color: rgba(255, 255, 255, 0.85);
             font-weight: 300;
         }
         
-        .hero-buttons {
+        .hero-cta {
             display: flex;
             gap: 20px;
         }
         
-        .btn-primary {
-            background-color: #b99d6e;
-            color: white;
-            padding: 18px 35px;
-            border: none;
+        .btn {
+            padding: 20px 40px;
             font-size: 16px;
             font-weight: 500;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
             text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s;
             display: inline-block;
-            border-radius: 1px;
+            border-radius: 0;
+            text-transform: uppercase;
+        }
+        
+        .btn-primary {
+            background-color: #c19a5b;
+            color: white;
+            border: none;
         }
         
         .btn-primary:hover {
-            background-color: #a88a5a;
+            background-color: #a88446;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(193, 154, 91, 0.2);
         }
         
         .btn-secondary {
             background-color: transparent;
             color: white;
-            padding: 18px 35px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 1px;
         }
         
         .btn-secondary:hover {
-            border-color: #b99d6e;
-            color: #b99d6e;
+            border-color: #c19a5b;
+            color: #c19a5b;
             transform: translateY(-3px);
         }
         
-        /* Stats Section */
-        .stats-section {
-            background-color: #f8f5f0;
-            padding: 80px 0;
+        /* STATS SECTION */
+        .stats {
+            padding: 120px 0;
+            background-color: #f9f7f3;
         }
         
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            gap: 60px;
         }
         
         .stat-item {
@@ -251,32 +256,34 @@
         }
         
         .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #b99d6e;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            font-weight: 400;
+            color: #c19a5b;
+            margin-bottom: 15px;
+            line-height: 1;
         }
         
         .stat-label {
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #777;
+            color: #666;
         }
         
-        /* FAQ Preview - Minimal */
-        .faq-preview {
+        /* FAQ SECTION - MINIMAL CARDS */
+        .faq {
+            padding: 150px 0;
             background-color: white;
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
         
         .section-title {
-            font-size: 42px;
+            font-size: 56px;
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
@@ -285,188 +292,175 @@
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background-color: #b99d6e;
+            width: 100px;
+            height: 1px;
+            background-color: #c19a5b;
         }
         
         .section-subtitle {
-            font-size: 18px;
-            color: #777;
-            max-width: 600px;
-            margin: 30px auto 0;
+            font-size: 20px;
+            color: #666;
+            max-width: 700px;
+            margin: 40px auto 0;
             line-height: 1.6;
         }
         
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 50px;
         }
         
         .faq-card {
-            padding: 40px 30px;
-            background-color: #fcfcfc;
-            border: 1px solid #f0f0f0;
-            transition: all 0.3s;
+            padding: 60px 40px;
+            background-color: #fcfbf9;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
         
-        .faq-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-        }
-        
-        .faq-icon {
-            font-size: 36px;
-            color: #b99d6e;
-            margin-bottom: 25px;
-        }
-        
-        .faq-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-        
-        .faq-text {
-            color: #666;
-            line-height: 1.8;
-            font-size: 15px;
-        }
-        
-        /* Europe Focus */
-        .europe-focus {
-            background-color: #1a1a1a;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .europe-focus:before {
+        .faq-card:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), 
-                        url('https://images.unsplash.com/photo-1547996160-81c6be7e7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
+            background: linear-gradient(135deg, rgba(193, 154, 91, 0.05) 0%, rgba(193, 154, 91, 0) 70%);
+            z-index: 0;
         }
         
-        .europe-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .faq-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
         }
         
-        .europe-content h2 {
-            color: white;
-            font-size: 48px;
+        .faq-icon {
+            font-size: 40px;
+            color: #c19a5b;
             margin-bottom: 30px;
         }
         
-        .europe-content p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
+        .faq-title {
+            font-size: 28px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-text {
+            color: #555;
             line-height: 1.8;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Process Section */
-        .process-section {
-            background-color: white;
+        /* PROCESS SECTION */
+        .process {
+            padding: 150px 0;
+            background-color: #1a1a1a;
+            color: white;
         }
         
-        .process-container {
+        .process .section-title {
+            color: white;
+        }
+        
+        .process .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 60px;
+            gap: 40px;
+            margin-top: 80px;
         }
         
         .process-step {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 30px;
             position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+        
+        .process-step:hover {
+            border-color: #c19a5b;
+            transform: translateY(-10px);
         }
         
         .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: #f8f5f0;
-            color: #b99d6e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 auto 30px;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 70px;
+            font-weight: 300;
+            color: #c19a5b;
+            margin-bottom: 30px;
+            line-height: 1;
+            opacity: 0.3;
         }
         
         .process-step h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
         }
         
         .process-step p {
-            color: #666;
-            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
         }
         
-        /* Contact Form */
-        .contact-section {
-            background-color: #f8f5f0;
+        /* CONTACT SECTION */
+        .contact {
+            padding: 150px 0;
+            background-color: #f9f7f3;
         }
         
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 100px;
             align-items: center;
         }
         
         .contact-info h3 {
-            font-size: 36px;
-            margin-bottom: 30px;
+            font-size: 48px;
+            margin-bottom: 40px;
         }
         
         .contact-details {
-            margin-top: 40px;
+            margin-top: 60px;
         }
         
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
         }
         
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background-color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            color: #b99d6e;
-            font-size: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-right: 25px;
+            color: #c19a5b;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
         
         .contact-text h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
         
         .contact-text p {
@@ -475,71 +469,126 @@
         
         .contact-form {
             background-color: white;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 500;
             color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .form-control {
             width: 100%;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
+            padding: 18px 0;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
             transition: border-color 0.3s;
-            background-color: #fcfcfc;
+            background-color: transparent;
+            color: #333;
         }
         
         .form-control:focus {
             outline: none;
-            border-color: #b99d6e;
+            border-bottom-color: #c19a5b;
         }
         
-        /* Footer */
-        .main-footer {
+        /* LOCATION SECTION */
+        .location {
+            padding: 100px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .location h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .location p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+        
+        .location-image {
+            width: 100%;
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1553802516-f0d0f1c6c7f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .location-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 50%, rgba(26, 26, 26, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .location-text {
+            color: white;
+            font-size: 48px;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -1px;
+        }
+        
+        /* FOOTER */
+        .footer {
             background-color: #1a1a1a;
             color: #aaa;
-            padding: 80px 0 30px;
+            padding: 100px 0 50px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            margin-bottom: 60px;
+            gap: 80px;
+            margin-bottom: 80px;
         }
         
         .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         .footer-logo span {
-            color: #b99d6e;
+            color: #c19a5b;
         }
         
         .footer-about p {
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            color: #999;
         }
         
         .footer-title {
             color: white;
-            font-size: 20px;
-            margin-bottom: 30px;
-            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 40px;
+            font-family: 'Cormorant Garamond', serif;
         }
         
         .footer-links ul {
@@ -547,53 +596,57 @@
         }
         
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .footer-links a {
             color: #aaa;
             text-decoration: none;
             transition: color 0.3s;
-            font-size: 15px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
         }
         
         .footer-links a:hover {
-            color: #b99d6e;
+            color: #c19a5b;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 14px;
             color: #777;
         }
         
-        .copyright a {
-            color: #b99d6e;
-            text-decoration: none;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
             .hero-title {
-                font-size: 52px;
+                font-size: 60px;
             }
             
             .stats-container,
             .faq-grid,
-            .process-container {
+            .process-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .contact-container {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 80px;
             }
         }
         
         @media (max-width: 768px) {
-            .nav-links {
+            .header {
+                padding: 20px 0;
+            }
+            
+            .nav {
                 display: none;
             }
             
@@ -601,26 +654,37 @@
                 display: block;
             }
             
-            .hero-title {
-                font-size: 42px;
+            .hero {
+                margin-top: 80px;
+                min-height: 800px;
             }
             
-            .hero-buttons {
+            .hero-content {
+                padding-left: 0;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-cta {
                 flex-direction: column;
                 gap: 15px;
             }
             
-            .hero-description {
-                font-size: 16px;
+            .section-title {
+                font-size: 42px;
             }
             
-            .section-padding {
-                padding: 70px 0;
+            .faq-card,
+            .contact-form {
+                padding: 40px 30px;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
             }
         }
         
@@ -633,181 +697,200 @@
                 font-size: 36px;
             }
             
+            .hero-description {
+                font-size: 18px;
+            }
+            
             .section-title {
-                font-size: 32px;
+                font-size: 36px;
             }
             
             .stats-container,
             .faq-grid,
-            .process-container {
+            .process-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="main-header" id="mainHeader">
+    <!-- HEADER -->
+    <header class="header" id="header">
         <div class="container header-content">
-            <div class="logo">TİMA<span>PROJE</span></div>
+            <a href="#" class="logo">TİMA<span>PROJE</span></a>
             
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Ana Sayfa</a></li>
-                    <li><a href="#about">Hakkımızda</a></li>
-                    <li><a href="#process">Süreç</a></li>
-                    <li><a href="#faq">SSS</a></li>
-                    <li><a href="#contact">İletişim</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <nav class="nav" id="nav">
+                <a href="#home">Ana Sayfa</a>
+                <a href="#process">Süreç</a>
+                <a href="#faq">SSS</a>
+                <a href="#contact">İletişim</a>
             </nav>
             
-            <div class="contact-header">
-                <a href="tel:5557999111" class="phone-number">
-                    <i class="fas fa-phone"></i> 555 799 91 11
-                </a>
-            </div>
+            <a href="tel:5557999111" class="phone-number">555 799 91 11</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-subtitle">SADECE AVRUPA YAKASI</div>
-                <h1 class="hero-title">Kentsel Dönüşümde <span>Lüks & Güven</span></h1>
+                <div class="hero-subtitle">FATİH KENTSEL DÖNÜŞÜM</div>
+                <h1 class="hero-title">Mülkünüzü <span>Lüks</span> ile Yenileyin</h1>
                 <p class="hero-description">
-                    TİMA Proje olarak, Fatih ve Avrupa Yakası'nda kentsel dönüşüm projelerinizi en kaliteli malzemeler, şeffaf süreçler ve lüks detaylarla hayata geçiriyoruz. Sıfır ödeme ile yeni dairenize kavuşun.
+                    TİMA Proje, Fatih'te kentsel dönüşümü lüks ve kalite standartlarında yeniden tanımlıyor. 
+                    Eski daireniz, ödüllü mimari tasarımla premium bir yaşam alanına dönüşüyor. 
+                    Sıfır ödeme, maksimum değer.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">ÜCRETSİZ KEŞİF</a>
-                    <a href="tel:5557999111" class="btn-secondary">HEMEN ARA</a>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">ÜCRETSİZ KEŞİF</a>
+                    <a href="tel:5557999111" class="btn btn-secondary">HEMEN ARA</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section class="stats-section">
+    <!-- STATS SECTION -->
+    <section class="stats">
         <div class="container">
             <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Tamamlanan Proje</div>
-                </div>
                 <div class="stat-item">
                     <div class="stat-number">0</div>
                     <div class="stat-label">Peşin Ödeme</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">%100</div>
-                    <div class="stat-label">Müşteri Memnuniyeti</div>
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Ay Ortalama Süre</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">24</div>
-                    <div class="stat-label">Ay Ortalama Süre</div>
+                    <div class="stat-number">+20%</div>
+                    <div class="stat-label">Metrekare Artışı</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">%100</div>
+                    <div class="stat-label">Kalite Garantisi</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Preview -->
-    <section class="faq-preview section-padding" id="faq">
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">En Çok Sorulanlar</h2>
-                <p class="section-subtitle">Kentsel dönüşüm sürecinizle ilgili tüm merak ettikleriniz</p>
+                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+                <p class="section-subtitle">
+                    Kentsel dönüşüm sürecinizle ilgili tüm sorularınızın cevapları
+                </p>
             </div>
             
             <div class="faq-grid">
                 <div class="faq-card">
                     <div class="faq-icon">
-                        <i class="fas fa-money-bill-wave"></i>
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <h3 class="faq-title">Ne Kadar Ödeyeceğim?</h3>
-                    <p class="faq-text">Hiç ödeme yapmadan yeni dairenize kavuşabilirsiniz. Kat karşılığı modelimizle, mevcut dairenizin değeri yeni daireniz olarak size geri dönüyor.</p>
+                    <h3 class="faq-title">Finansal Model</h3>
+                    <p class="faq-text">
+                        Hiç ödeme yapmadan yeni dairenize kavuşun. Mevcut mülkünüzün değeri, 
+                        yeni lüks daireniz için yeterli. Ekstra ödeme yok, gizli maliyet yok. 
+                        Kat karşılığı modelimiz tamamen şeffaf.
+                    </p>
                 </div>
                 
                 <div class="faq-card">
                     <div class="faq-icon">
-                        <i class="fas fa-expand-arrows-alt"></i>
+                        <i class="fas fa-ruler-combined"></i>
                     </div>
-                    <h3 class="faq-title">Metrekare Değişimi?</h3>
-                    <p class="faq-text">100m² eski daireniz, yönetmelik haklarınızla birlikte 120-130m² yeni daireye dönüşür. Otopark ve depo gibi sosyal alanlar ekstra.</p>
+                    <h3 class="faq-title">Metrekare & Plan</h3>
+                    <p class="faq-text">
+                        100m² eski daireniz, yasal haklarınızla birlikte 120-130m² lüks daireye 
+                        dönüşür. Akıllı kat planları, yüksek tavanlar, geniş balkonlar ve 
+                        premium sosyal alanlar standartlarımız arasında.
+                    </p>
                 </div>
                 
                 <div class="faq-card">
                     <div class="faq-icon">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-gem"></i>
                     </div>
-                    <h3 class="faq-title">Evler Nasıl Olacak?</h3>
-                    <p class="faq-text">Lüks ve kaliteli malzemelerle, deprem yönetmeliğine uygun, enerji verimli, akıllı ev altyapılı daireler inşa ediyoruz.</p>
+                    <h3 class="faq-title">Malzeme Kalitesi</h3>
+                    <p class="faq-text">
+                        Mutfak: SieMatic veya Poggenpohl. Banyo: Villeroy & Boch veya Duravit. 
+                        Zemin: Mermer veya yüksek kalite seramik. Kapı-pencere: Schüco veya esdeğer. 
+                        Her detayda lüksü hissettiriyoruz.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Europe Focus -->
-    <section class="europe-focus section-padding">
-        <div class="container">
-            <div class="europe-content">
-                <h2>Sadece Avrupa Yakası</h2>
-                <p>
-                    Fatih, Eyüpsultan, Bağcılar, Esenler, Bayrampaşa ve Avrupa Yakası'nın tüm ilçelerinde uzmanız. Bölgenin dokusuna saygılı, modern ve lüks yaşam alanları yaratıyoruz. Avrupa Yakası'nı en iyi biz biliyoruz.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section class="process-section section-padding" id="process">
+    <!-- PROCESS SECTION -->
+    <section class="process" id="process">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Şeffaf Süreç</h2>
-                <p class="section-subtitle">Kentsel dönüşümünüz her adımda takip edilebilir</p>
+                <p class="section-subtitle">
+                    Premium hizmet anlayışımızla her adımda yanınızdayız
+                </p>
             </div>
             
-            <div class="process-container">
+            <div class="process-grid">
                 <div class="process-step">
-                    <div class="step-number">1</div>
+                    <div class="step-number">01</div>
                     <h3>Keşif & Değerlendirme</h3>
-                    <p>Ücretsiz keşif ile mevcut durumunuz değerlendirilir.</p>
+                    <p>Mülkünüz ücretsiz incelenir, proje önerisi sunulur.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Anlaşma & Projelendirme</h3>
-                    <p>Şeffaf sözleşme ile anlaşma sağlanır, proje hazırlanır.</p>
+                    <div class="step-number">02</div>
+                    <h3>Tasarım & Onay</h3>
+                    <p>Mimari proje hazırlanır, tüm detaylar paylaşılır.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Yıkım & İnşaat</h3>
-                    <p>Kaliteli malzemelerle lüks daireniz inşa edilir.</p>
+                    <div class="step-number">03</div>
+                    <h3>İnşaat Süreci</h3>
+                    <p>Premium malzemelerle lüks yaşam alanınız inşa edilir.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">4</div>
+                    <div class="step-number">04</div>
                     <h3>Teslim & Tapu</h3>
-                    <p>Yeni daireniz ve tapunuz eksiksiz teslim edilir.</p>
+                    <p>Anahtar ve tapu eksiksiz olarak teslim edilir.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact-section section-padding" id="contact">
+    <!-- LOCATION SECTION -->
+    <section class="location">
+        <div class="container">
+            <h2>Fatih'te Lüks Yaşam</h2>
+            <p>
+                Tarihin kalbinde, modern lüksün merkezinde. Fatih'te kentsel dönüşümü 
+                premium standartlarda yeniden tanımlıyoruz.
+            </p>
+            <div class="location-image">
+                <div class="location-overlay">
+                    <div class="location-text">FATİH | İSTANBUL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>İletişime Geçin</h3>
-                    <p>TİMA Proje olarak, Avrupa Yakası'ndaki kentsel dönüşüm projeleriniz için buradayız. Ücretsiz keşif ve danışmanlık için bize ulaşın.</p>
+                    <p>
+                        Fatih'teki mülkünüzü lüks bir yaşam alanına dönüştürmek için 
+                        ücretsiz keşif randevusu oluşturun. Uzman ekibimiz sizinle iletişime geçecektir.
+                    </p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
@@ -816,7 +899,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Telefon</h4>
-                                <p><a href="tel:5557999111" style="color:#666; text-decoration:none;">555 799 91 11</a></p>
+                                <p>555 799 91 11</p>
                             </div>
                         </div>
                         
@@ -826,7 +909,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Lokasyon</h4>
-                                <p>Fatih, İstanbul | Sadece Avrupa Yakası</p>
+                                <p>Fatih, İstanbul</p>
                             </div>
                         </div>
                         
@@ -843,7 +926,7 @@
                 </div>
                 
                 <div class="contact-form">
-                    <h3 style="margin-bottom:30px;">Ücretsiz Keşif Formu</h3>
+                    <h3 style="margin-bottom:40px; font-size:32px;">Ücretsiz Keşif Formu</h3>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Adınız Soyadınız</label>
@@ -856,37 +939,42 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="location">Bulunduğunuz Semt</label>
+                            <label for="location">Bulunduğunuz Semt (Fatih)</label>
                             <input type="text" id="location" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Mesajınız (Opsiyonel)</label>
-                            <textarea id="message" class="form-control" rows="4"></textarea>
+                            <label for="message">Ek Notlar (Opsiyonel)</label>
+                            <textarea id="message" class="form-control" rows="3"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn-primary" style="width:100%;">GÖNDERİN, SİZİ ARAYALIM</button>
+                        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:30px;">
+                            GÖNDERİN, SİZİ ARAYALIM
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">TİMA<span>PROJE</span></div>
-                    <p>Fatih, İstanbul merkezli kentsel dönüşüm firması. Avrupa Yakası'nda lüks, şeffaf ve güvenilir dönüşüm projeleri yapıyoruz.</p>
-                    <a href="tel:5557999111" class="btn-secondary" style="padding:12px 25px;">555 799 91 11</a>
+                    <p>
+                        Fatih, İstanbul merkezli premium kentsel dönüşüm firması. 
+                        Lüks malzemeler, şeffaf süreçler ve kaliteli işçilikle 
+                        mülklerinizi değerine değer katıyoruz.
+                    </p>
+                    <a href="tel:5557999111" class="btn btn-secondary" style="padding:15px 30px;">555 799 91 11</a>
                 </div>
                 
                 <div class="footer-links">
-                    <h3 class="footer-title">Hızlı Bağlantılar</h3>
+                    <h3 class="footer-title">Bağlantılar</h3>
                     <ul>
                         <li><a href="#home">Ana Sayfa</a></li>
-                        <li><a href="#about">Hakkımızda</a></li>
                         <li><a href="#process">Süreç</a></li>
                         <li><a href="#faq">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#contact">İletişim</a></li>
@@ -898,26 +986,47 @@
                     <p><strong>Telefon:</strong> 555 799 91 11</p>
                     <p><strong>Lokasyon:</strong> Fatih, İstanbul</p>
                     <p><strong>Çalışma Saatleri:</strong> 09:00 - 19:00</p>
-                    <p><strong>Bölge:</strong> Sadece Avrupa Yakası</p>
+                    <p><strong>Bölge:</strong> Fatih</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 TİMA Proje Kentsel Dönüşüm. Tüm hakları saklıdır. | <a href="tel:5557999111">555 799 91 11</a></p>
+                <p>&copy; 2023 TİMA Proje Kentsel Dönüşüm. Tüm hakları saklıdır. | <a href="tel:5557999111" style="color:#c19a5b;">555 799 91 11</a></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
         
-        // Form Submission
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.backgroundColor = 'white';
+                nav.style.padding = '30px';
+                nav.style.gap = '20px';
+                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // Form submission
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -930,19 +1039,7 @@
             contactForm.reset();
         });
         
-        // Header Scroll Effect
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.style.padding = '15px 0';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
-            } else {
-                header.style.padding = '20px 0';
-                header.style.boxShadow = 'none';
-            }
-        });
-        
-        // Smooth Scrolling for Anchor Links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -953,13 +1050,13 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                     
                     // Close mobile menu if open
                     if (window.innerWidth <= 768) {
-                        navLinks.style.display = 'none';
+                        nav.style.display = 'none';
                     }
                 }
             });
