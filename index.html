@@ -3,399 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA Proje | Avrupa Yakası Kentsel Dönüşüm</title>
+    <title>TİMA Proje | Sadece Avrupa Yakası Kentsel Dönüşüm</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Temel Stiller */
+        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
+            font-family: 'Montserrat', sans-serif;
             color: #333;
-            line-height: 1.6;
-            background-color: #f9f9f9;
+            background-color: #fefefe;
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         
-        /* Üst Bilgi ve Navigasyon */
-        .top-header {
-            background-color: #1a365d;
-            color: white;
-            padding: 15px 0;
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        /* Header - Minimal & Lux */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            transition: all 0.3s ease;
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
         
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 700;
-            color: #f8f9fa;
+            color: #1a1a1a;
+            letter-spacing: -1px;
         }
         
         .logo span {
-            color: #38b2ac;
+            color: #b99d6e;
+            font-weight: 400;
         }
         
-        .contact-info {
-            text-align: right;
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
         
         .phone-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #38b2ac;
-            margin-bottom: 5px;
-        }
-        
-        .location {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .whatsapp-btn {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
+            font-size: 20px;
             font-weight: 600;
-            margin-top: 10px;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s;
+            white-space: nowrap;
         }
         
-        /* Navigasyon */
-        nav {
-            background-color: #2d3748;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .phone-number:hover {
+            color: #b99d6e;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-        }
-        
-        .nav-links li {
-            position: relative;
+            gap: 40px;
         }
         
         .nav-links a {
-            color: white;
             text-decoration: none;
-            padding: 18px 20px;
-            display: block;
+            color: #555;
             font-weight: 500;
-            transition: background-color 0.3s;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
         }
         
         .nav-links a:hover {
-            background-color: #4a5568;
+            color: #b99d6e;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #b99d6e;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
         }
         
         .mobile-menu-btn {
             display: none;
-            color: white;
+            background: none;
+            border: none;
             font-size: 24px;
+            color: #1a1a1a;
             cursor: pointer;
         }
         
-        /* Hero Bölümü */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        /* Hero Section - Lux Minimal */
+        .hero-section {
+            height: 100vh;
+            min-height: 800px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.5)), 
+                        url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 100px 0;
-            text-align: center;
+            margin-top: 80px;
         }
         
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 20px;
+        .hero-content {
             max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
         }
         
-        .highlight {
-            color: #38b2ac;
+        .hero-subtitle {
+            font-size: 18px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+        }
+        
+        .hero-title {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: white;
             font-weight: 700;
         }
         
-        .cta-button {
-            display: inline-block;
-            background-color: #38b2ac;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
+        .hero-title span {
+            color: #b99d6e;
             font-weight: 600;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
         }
         
-        .cta-button:hover {
-            background-color: #2c9c96;
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn-primary {
+            background-color: #b99d6e;
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 1px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #a88a5a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 18px 35px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 1px;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #b99d6e;
+            color: #b99d6e;
             transform: translateY(-3px);
         }
         
-        /* SSS Özet Bölümü */
-        .faq-preview {
-            background-color: white;
+        /* Stats Section */
+        .stats-section {
+            background-color: #f8f5f0;
             padding: 80px 0;
         }
         
-        .section-title {
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .stat-item {
             text-align: center;
-            margin-bottom: 50px;
-            color: #1a365d;
-            font-size: 36px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #b99d6e;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #777;
+        }
+        
+        /* FAQ Preview - Minimal */
+        .faq-preview {
+            background-color: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 20px;
             position: relative;
+            display: inline-block;
         }
         
         .section-title:after {
             content: '';
-            display: block;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 80px;
-            height: 4px;
-            background-color: #38b2ac;
-            margin: 15px auto 0;
+            height: 2px;
+            background-color: #b99d6e;
         }
         
-        .faq-container {
+        .section-subtitle {
+            font-size: 18px;
+            color: #777;
+            max-width: 600px;
+            margin: 30px auto 0;
+            line-height: 1.6;
+        }
+        
+        .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
         
-        .faq-item {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid #38b2ac;
+        .faq-card {
+            padding: 40px 30px;
+            background-color: #fcfcfc;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         
-        .faq-item h3 {
-            color: #1a365d;
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-        
-        .faq-item p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-        
-        .faq-item ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .faq-item li {
-            margin-bottom: 8px;
-        }
-        
-        /* Avantajlar Bölümü */
-        .advantages {
-            background-color: #f0f7f7;
-            padding: 80px 0;
-        }
-        
-        .advantage-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .advantage-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .advantage-card:hover {
+        .faq-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
         
-        .advantage-icon {
-            font-size: 48px;
-            color: #38b2ac;
-            margin-bottom: 20px;
-        }
-        
-        .advantage-card h3 {
-            color: #1a365d;
-            margin-bottom: 15px;
-        }
-        
-        /* Referanslar */
-        .references {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .reference-slider {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            padding: 20px 0;
-            scrollbar-width: thin;
-        }
-        
-        .reference-item {
-            min-width: 300px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .reference-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #555;
-        }
-        
-        .reference-author {
-            font-weight: 600;
-            color: #1a365d;
-        }
-        
-        /* Avrupa Yakası Vurgu */
-        .europe-side {
-            background-color: #1a365d;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .europe-side h2 {
+        .faq-icon {
             font-size: 36px;
+            color: #b99d6e;
+            margin-bottom: 25px;
+        }
+        
+        .faq-title {
+            font-size: 22px;
             margin-bottom: 20px;
         }
         
-        .europe-side p {
-            font-size: 20px;
+        .faq-text {
+            color: #666;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        
+        /* Europe Focus */
+        .europe-focus {
+            background-color: #1a1a1a;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .europe-focus:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1547996160-81c6be7e7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+        
+        .europe-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        /* İletişim */
-        .contact {
-            padding: 80px 0;
-            background-color: #f0f7f7;
+        .europe-content h2 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+        
+        .europe-content p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background-color: white;
+        }
+        
+        .process-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: #f8f5f0;
+            color: #b99d6e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 30px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .process-step h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .process-step p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            background-color: #f8f5f0;
         }
         
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .contact-info h3 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: #b99d6e;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p {
+            color: #666;
         }
         
         .contact-form {
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #1a365d;
+            margin-bottom: 10px;
             font-weight: 500;
+            color: #333;
         }
         
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-control {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
             font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s;
+            background-color: #fcfcfc;
         }
         
-        .submit-btn {
-            background-color: #38b2ac;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #2c9c96;
+        .form-control:focus {
+            outline: none;
+            border-color: #b99d6e;
         }
         
         /* Footer */
-        footer {
-            background-color: #1a365d;
-            color: white;
-            padding: 50px 0 20px;
+        .main-footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 80px 0 30px;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
         }
         
         .footer-logo {
+            font-family: 'Playfair Display', serif;
             font-size: 28px;
-            font-weight: 700;
+            color: white;
             margin-bottom: 20px;
-            color: #f8f9fa;
         }
         
         .footer-logo span {
-            color: #38b2ac;
+            color: #b99d6e;
         }
         
-        .footer-contact h3,
-        .footer-links h3 {
+        .footer-about p {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .footer-title {
+            color: white;
             font-size: 20px;
-            margin-bottom: 20px;
-            color: #38b2ac;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
         }
         
         .footer-links ul {
@@ -403,377 +547,422 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .footer-links a {
-            color: #ddd;
+            color: #aaa;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 15px;
         }
         
         .footer-links a:hover {
-            color: #38b2ac;
+            color: #b99d6e;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #2d3748;
-            color: #aaa;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 14px;
+            color: #777;
         }
         
-        /* Responsive Tasarım */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 36px;
+        .copyright a {
+            color: #b99d6e;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 52px;
             }
             
+            .stats-container,
+            .faq-grid,
+            .process-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                width: 100%;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background-color: #2d3748;
-                z-index: 100;
-            }
-            
-            .nav-links.active {
-                display: flex;
             }
             
             .mobile-menu-btn {
                 display: block;
             }
             
-            .nav-links a {
-                padding: 15px 20px;
-                border-bottom: 1px solid #4a5568;
+            .hero-title {
+                font-size: 42px;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
+            
+            .hero-buttons {
                 flex-direction: column;
-                text-align: center;
+                gap: 15px;
             }
             
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
+            .hero-description {
+                font-size: 16px;
             }
             
-            .hero h1 {
-                font-size: 30px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section-title {
-                font-size: 30px;
-            }
-            
-            .faq-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
+            .section-padding {
                 padding: 70px 0;
             }
             
-            .hero h1 {
-                font-size: 26px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
             }
             
-            .phone-number {
-                font-size: 20px;
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .stats-container,
+            .faq-grid,
+            .process-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Üst Bilgi -->
-    <div class="top-header">
+    <!-- Header -->
+    <header class="main-header" id="mainHeader">
         <div class="container header-content">
             <div class="logo">TİMA<span>PROJE</span></div>
-            <div class="contact-info">
-                <div class="phone-number"><i class="fas fa-phone"></i> 555 799 91 11</div>
-                <div class="location">Fatih, İstanbul | Sadece Avrupa Yakası</div>
-                <a href="https://wa.me/905557999111" class="whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yazın
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#process">Süreç</a></li>
+                    <li><a href="#faq">SSS</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            
+            <div class="contact-header">
+                <a href="tel:5557999111" class="phone-number">
+                    <i class="fas fa-phone"></i> 555 799 91 11
                 </a>
             </div>
         </div>
-    </div>
-    
-    <!-- Navigasyon -->
-    <nav>
-        <div class="container nav-container">
-            <div class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about">Biz Kimiz?</a></li>
-                <li><a href="#projects">Projelerimiz</a></li>
-                <li><a href="#faq">Sık Sorulan Sorular</a></li>
-                <li><a href="#contact">İletişim</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- Hero Bölümü -->
-    <section class="hero" id="home">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
         <div class="container">
-            <h1>Fatih'te Kentsel Dönüşümün <span class="highlight">Güvenilir Adresi</span></h1>
-            <p>TİMA Proje olarak, Avrupa Yakası'nda güvenle evinizi yeniliyoruz. <span class="highlight">Sıfır ödeme</span> ile yeni, modern ve deprem güvenliği sağlanmış dairenize kavuşun.</p>
-            <a href="#contact" class="cta-button">ÜCRETSİZ KEŞİF TALEBİ İÇİN TIKLAYIN</a>
-        </div>
-    </section>
-    
-    <!-- SSS Özet Bölümü -->
-    <section class="faq-preview" id="faq">
-        <div class="container">
-            <h2 class="section-title">En Çok Merak Edilenler</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <h3><i class="fas fa-money-bill-wave"></i> Ne Kadar Ödeyeceğim?</h3>
-                    <p><strong>Hiç ödeme yapmadan yeni dairenize kavuşabilirsiniz!</strong></p>
-                    <p>Kat karşılığı anlaşma modelimiz sayesinde, mevcut dairenizin değeri üzerinden hak sahipliğiniz devam eder. Yeni binanın inşaat maliyeti ve tüm yasal süreçler firmamız tarafından karşılanır.</p>
-                    <ul>
-                        <li>Eski daireniz = Yeni daireniz + sosyal alanlar</li>
-                        <li>Kat fazlası durumunda esnek ödeme planı</li>
-                        <li>Ekstra ödeme yok</li>
-                    </ul>
-                </div>
-                
-                <div class="faq-item">
-                    <h3><i class="fas fa-home"></i> Kaç Metrekareye Kaç Metrekare Olur?</h3>
-                    <p>Mevcut brüt metrekarenize + yönetmeliğin verdiği haklarınız oranında yeni daireniz belirlenir.</p>
-                    <p><strong>Örnek:</strong></p>
-                    <ul>
-                        <li>100m² eski daireniz → 120-130m² yeni daire</li>
-                        <li>Otopark ve depo gibi sosyal alanlar ekstra</li>
-                        <li>Net kullanım alanı daha verimli</li>
-                        <li>Modern mimari ile daha ferah mekanlar</li>
-                    </ul>
-                </div>
-                
-                <div class="faq-item">
-                    <h3><i class="fas fa-calendar-alt"></i> Süreç Nasıl İşler?</h3>
-                    <p>Güvenli ve şeffaf bir süreçle dairenizi yeniliyoruz:</p>
-                    <ul>
-                        <li><strong>1. Adım:</strong> Ücretsiz keşif ve değerlendirme</li>
-                        <li><strong>2. Adım:</strong> Maliklerle anlaşma ve sözleşme</li>
-                        <li><strong>3. Adım:</strong> Projelendirme ve ruhsat süreçleri</li>
-                        <li><strong>4. Adım:</strong> Yıkım ve inşaat aşaması</li>
-                        <li><strong>5. Adım:</strong> Tapu devri ve yeni daire teslimi</li>
-                    </ul>
-                    <p>Ortalama süre: 18-24 ay</p>
+            <div class="hero-content">
+                <div class="hero-subtitle">SADECE AVRUPA YAKASI</div>
+                <h1 class="hero-title">Kentsel Dönüşümde <span>Lüks & Güven</span></h1>
+                <p class="hero-description">
+                    TİMA Proje olarak, Fatih ve Avrupa Yakası'nda kentsel dönüşüm projelerinizi en kaliteli malzemeler, şeffaf süreçler ve lüks detaylarla hayata geçiriyoruz. Sıfır ödeme ile yeni dairenize kavuşun.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">ÜCRETSİZ KEŞİF</a>
+                    <a href="tel:5557999111" class="btn-secondary">HEMEN ARA</a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Avantajlar -->
-    <section class="advantages">
+
+    <!-- Stats -->
+    <section class="stats-section">
         <div class="container">
-            <h2 class="section-title">Neden TİMA Proje?</h2>
-            <div class="advantage-cards">
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Güven ve Şeffaflık</h3>
-                    <p>Tüm süreçler avukatlarımız eşliğinde, 6306 sayılı yasaya uygun şekilde yürütülür. Her adımda bilgilendirme yapılır.</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Tamamlanan Proje</div>
                 </div>
-                
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Kaliteli Malzemeler</h3>
-                    <p>Kaliteli markalar ile depreme dayanıklı, enerji verimli, modern binalar inşa ediyoruz. Mutfak, banyo, kapı-pencere kalitesi garantimiz var.</p>
+                <div class="stat-item">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Peşin Ödeme</div>
                 </div>
-                
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Sadece Avrupa Yakası</h3>
-                    <p>Fatih ve Avrupa Yakası'nda uzmanlaştık. Bölgenin tarihi dokusuna saygılı, modern yaşam alanları oluşturuyoruz.</p>
+                <div class="stat-item">
+                    <div class="stat-number">%100</div>
+                    <div class="stat-label">Müşteri Memnuniyeti</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Ay Ortalama Süre</div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Avrupa Yakası Vurgu -->
-    <section class="europe-side">
+
+    <!-- FAQ Preview -->
+    <section class="faq-preview section-padding" id="faq">
         <div class="container">
-            <h2>SADECE AVRUPA YAKASI</h2>
-            <p>Fatih, Eyüpsultan, Bağcılar, Esenler, Bayrampaşa ve Avrupa Yakası'nın diğer ilçelerinde kentsel dönüşüm projeleri yapıyoruz. Bölgeyi iyi biliyor, ihtiyaçlarınıza özel çözümler sunuyoruz.</p>
-        </div>
-    </section>
-    
-    <!-- Referanslar -->
-    <section class="references">
-        <div class="container">
-            <h2 class="section-title">Maliklerimiz Ne Diyor?</h2>
-            <div class="reference-slider">
-                <div class="reference-item">
-                    <div class="reference-text">
-                        "Başta çok tereddütlüydük ama TİMA Proje ekibi tüm süreci adım adım anlattı. Şimdi yeni dairemizde yaşıyoruz ve çok memnunuz. Güvenilir bir firma."
+            <div class="section-header">
+                <h2 class="section-title">En Çok Sorulanlar</h2>
+                <p class="section-subtitle">Kentsel dönüşüm sürecinizle ilgili tüm merak ettikleriniz</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <div class="faq-icon">
+                        <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <div class="reference-author">- Ahmet Y., Fatih</div>
+                    <h3 class="faq-title">Ne Kadar Ödeyeceğim?</h3>
+                    <p class="faq-text">Hiç ödeme yapmadan yeni dairenize kavuşabilirsiniz. Kat karşılığı modelimizle, mevcut dairenizin değeri yeni daireniz olarak size geri dönüyor.</p>
                 </div>
                 
-                <div class="reference-item">
-                    <div class="reference-text">
-                        "Hiç para ödemeden eski binamızdan çok daha güzel bir daireye geçtik. Süreç biraz uzun sürdü ama bu işler böyle. Sonuç mükemmel oldu."
+                <div class="faq-card">
+                    <div class="faq-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
                     </div>
-                    <div class="reference-author">- Ayşe K., Eyüpsultan</div>
+                    <h3 class="faq-title">Metrekare Değişimi?</h3>
+                    <p class="faq-text">100m² eski daireniz, yönetmelik haklarınızla birlikte 120-130m² yeni daireye dönüşür. Otopark ve depo gibi sosyal alanlar ekstra.</p>
                 </div>
                 
-                <div class="reference-item">
-                    <div class="reference-text">
-                        "Diğer firmalar bize kat fazlası için yüksek ödemeler istedi. TİMA Proje makul bir ödeme planı sundu ve sözünü tuttu. Ekip çok profesyonel."
+                <div class="faq-card">
+                    <div class="faq-icon">
+                        <i class="fas fa-home"></i>
                     </div>
-                    <div class="reference-author">- Mehmet S., Bağcılar</div>
+                    <h3 class="faq-title">Evler Nasıl Olacak?</h3>
+                    <p class="faq-text">Lüks ve kaliteli malzemelerle, deprem yönetmeliğine uygun, enerji verimli, akıllı ev altyapılı daireler inşa ediyoruz.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- İletişim -->
-    <section class="contact" id="contact">
+
+    <!-- Europe Focus -->
+    <section class="europe-focus section-padding">
         <div class="container">
-            <h2 class="section-title">Ücretsiz Keşif ve Bilgi İçin</h2>
+            <div class="europe-content">
+                <h2>Sadece Avrupa Yakası</h2>
+                <p>
+                    Fatih, Eyüpsultan, Bağcılar, Esenler, Bayrampaşa ve Avrupa Yakası'nın tüm ilçelerinde uzmanız. Bölgenin dokusuna saygılı, modern ve lüks yaşam alanları yaratıyoruz. Avrupa Yakası'nı en iyi biz biliyoruz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section section-padding" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Şeffaf Süreç</h2>
+                <p class="section-subtitle">Kentsel dönüşümünüz her adımda takip edilebilir</p>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Keşif & Değerlendirme</h3>
+                    <p>Ücretsiz keşif ile mevcut durumunuz değerlendirilir.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Anlaşma & Projelendirme</h3>
+                    <p>Şeffaf sözleşme ile anlaşma sağlanır, proje hazırlanır.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Yıkım & İnşaat</h3>
+                    <p>Kaliteli malzemelerle lüks daireniz inşa edilir.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Teslim & Tapu</h3>
+                    <p>Yeni daireniz ve tapunuz eksiksiz teslim edilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container">
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Bize Ulaşın</h3>
-                    <p><strong>TİMA Proje</strong> olarak, Avrupa Yakası'ndaki kentsel dönüşüm projeleriniz için buradayız.</p>
+                    <h3>İletişime Geçin</h3>
+                    <p>TİMA Proje olarak, Avrupa Yakası'ndaki kentsel dönüşüm projeleriniz için buradayız. Ücretsiz keşif ve danışmanlık için bize ulaşın.</p>
                     
-                    <div style="margin-top: 30px;">
-                        <p><i class="fas fa-map-marker-alt"></i> <strong>Adres:</strong> Fatih, İstanbul (Detaylı adres için arayınız)</p>
-                        <p><i class="fas fa-phone"></i> <strong>Telefon:</strong> 555 799 91 11</p>
-                        <p><i class="fas fa-envelope"></i> <strong>E-posta:</strong> info@timaproje.com</p>
-                        <p><i class="fas fa-clock"></i> <strong>Çalışma Saatleri:</strong> Hafta içi 09:00-18:00</p>
-                    </div>
-                    
-                    <div style="margin-top: 30px;">
-                        <a href="tel:5557999111" class="cta-button" style="display: inline-block; margin-bottom: 15px;">
-                            <i class="fas fa-phone"></i> Hemen Ara
-                        </a>
-                        <a href="https://wa.me/905557999111" class="whatsapp-btn" target="_blank" style="display: inline-block; margin-left: 15px;">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefon</h4>
+                                <p><a href="tel:5557999111" style="color:#666; text-decoration:none;">555 799 91 11</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Lokasyon</h4>
+                                <p>Fatih, İstanbul | Sadece Avrupa Yakası</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Çalışma Saatleri</h4>
+                                <p>Pazartesi - Cumartesi: 09:00 - 19:00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <h3>Ücretsiz Keşif Formu</h3>
-                    <p>Adınızı ve telefonunuzu bırakın, sizi arayalım.</p>
-                    
+                    <h3 style="margin-bottom:30px;">Ücretsiz Keşif Formu</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Adınız Soyadınız:</label>
-                            <input type="text" id="name" required>
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Telefon Numaranız:</label>
-                            <input type="tel" id="phone" required>
+                            <label for="phone">Telefon Numaranız</label>
+                            <input type="tel" id="phone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="location">Bulunduğunuz Semt:</label>
-                            <input type="text" id="location" required>
+                            <label for="location">Bulunduğunuz Semt</label>
+                            <input type="text" id="location" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Mesajınız (Opsiyonel):</label>
-                            <textarea id="message" rows="4"></textarea>
+                            <label for="message">Mesajınız (Opsiyonel)</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
                         </div>
                         
-                        <button type="submit" class="submit-btn">GÖNDERİN, SİZİ ARAYALIM</button>
+                        <button type="submit" class="btn-primary" style="width:100%;">GÖNDERİN, SİZİ ARAYALIM</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
-    <footer>
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">TİMA<span>PROJE</span></div>
-                    <p>Fatih, İstanbul merkezli kentsel dönüşüm firması. Avrupa Yakası'nda güvenilir, şeffaf ve kaliteli dönüşüm projeleri yapıyoruz.</p>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>İletişim</h3>
-                    <p><i class="fas fa-phone"></i> 555 799 91 11</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Fatih, İstanbul</p>
-                    <p><i class="fas fa-globe"></i> Sadece Avrupa Yakası</p>
+                    <p>Fatih, İstanbul merkezli kentsel dönüşüm firması. Avrupa Yakası'nda lüks, şeffaf ve güvenilir dönüşüm projeleri yapıyoruz.</p>
+                    <a href="tel:5557999111" class="btn-secondary" style="padding:12px 25px;">555 799 91 11</a>
                 </div>
                 
                 <div class="footer-links">
-                    <h3>Hızlı Bağlantılar</h3>
+                    <h3 class="footer-title">Hızlı Bağlantılar</h3>
                     <ul>
                         <li><a href="#home">Ana Sayfa</a></li>
-                        <li><a href="#about">Biz Kimiz?</a></li>
-                        <li><a href="#projects">Projelerimiz</a></li>
-                        <li><a href="#faq">Sık Sorulan Sorular</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#process">Süreç</a></li>
+                        <li><a href="#faq">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#contact">İletişim</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-title">İletişim</h3>
+                    <p><strong>Telefon:</strong> 555 799 91 11</p>
+                    <p><strong>Lokasyon:</strong> Fatih, İstanbul</p>
+                    <p><strong>Çalışma Saatleri:</strong> 09:00 - 19:00</p>
+                    <p><strong>Bölge:</strong> Sadece Avrupa Yakası</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 TİMA Proje Kentsel Dönüşüm. Tüm hakları saklıdır. | 555 799 91 11</p>
+                <p>&copy; 2023 TİMA Proje Kentsel Dönüşüm. Tüm hakları saklıdır. | <a href="tel:5557999111">555 799 91 11</a></p>
             </div>
         </div>
     </footer>
-    
+
     <script>
-        // Mobil menü açma/kapama
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
         
-        // Form gönderimi
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Burada form verilerini işleyebilirsiniz
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             
             alert(`Teşekkürler ${name}! En kısa sürede ${phone} numaralı telefondan sizi arayacağız.`);
             
-            // Formu sıfırla
-            document.getElementById('contactForm').reset();
+            contactForm.reset();
         });
         
-        // Navigasyon linklerine tıklayınca mobil menüyü kapat
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('navLinks').classList.remove('active');
+        // Header Scroll Effect
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
             });
-        });
-        
-        // Sayfa yüklendiğinde telefon numarasını vurgula
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("TİMA Proje web sitesi yüklendi. İletişim: 555 799 91 11");
         });
     </script>
 </body>
