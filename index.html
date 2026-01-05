@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TİMA PROJE | Kentsel Dönüşüm</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#c9a24d;
+  --dark:#0f172a;
+  --soft:#f8f8f8;
+  --text:#1f2933;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:var(--soft);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+  padding:70px 20px;
+  text-align:center;
+}
+
+header h1{
+  font-family:'Playfair Display', serif;
+  font-size:48px;
+  letter-spacing:2px;
+  color:var(--gold);
+}
+
+header p{
+  margin-top:15px;
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* SECTIONS */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.section-title{
+  font-family:'Playfair Display', serif;
+  font-size:36px;
+  margin-bottom:30px;
+  color:var(--dark);
+  position:relative;
+}
+
+.section-title::after{
+  content:'';
+  width:80px;
+  height:4px;
+  background:var(--gold);
+  position:absolute;
+  left:0;
+  bottom:-10px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card h3{
+  color:var(--gold);
+  margin-bottom:15px;
+  font-size:22px;
+}
+
+/* FULL TEXT */
+.text-box{
+  background:white;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
+footer{
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:50px 20px;
+}
+
+footer h2{
+  font-family:'Playfair Display', serif;
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+footer p{
+  opacity:0.9;
+  margin:5px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>TİMA PROJE</h1>
+  <p>Kentsel Dönüşüm • Güvenli Yapılar • Geleceğe Değer Katan Projeler</p>
+</header>
+
+<section>
+  <h2 class="section-title">Kentsel Dönüşüm Nedir?</h2>
+  <div class="text-box">
+    <p>
+      Kentsel dönüşüm; deprem riski taşıyan, ekonomik ömrünü tamamlamış veya 
+      şehir estetiğini bozan yapıların yıkılarak, yerine modern, güvenli ve 
+      sürdürülebilir yapıların inşa edilmesidir. Amaç sadece bina yenilemek değil; 
+      yaşam kalitesini artırmak, can güvenliğini sağlamak ve şehirleri geleceğe hazırlamaktır.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Kentsel Dönüşümün Amaçları</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Deprem Güvenliği</h3>
+      <p>Riskli yapıların yıkılarak yönetmeliklere uygun, sağlam ve güvenli binalar yapılması.</p>
+    </div>
+    <div class="card">
+      <h3>Modern Yaşam Alanları</h3>
+      <p>Otoparklı, asansörlü, yalıtımlı ve çağdaş mimariye sahip yapılar.</p>
+    </div>
+    <div class="card">
+      <h3>Şehir Estetiği</h3>
+      <p>Plansız yapılaşmanın önüne geçilerek düzenli ve estetik şehirler oluşturulması.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Kentsel Dönüşüm Süreci</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Riskli Yapı Tespiti</h3>
+      <p>Lisanslı kuruluşlar tarafından binanın deprem riskinin belirlenmesi.</p>
+    </div>
+    <div class="card">
+      <h3>Yıkım ve Tahliye</h3>
+      <p>Resmi işlemler sonrası binanın güvenli şekilde yıkılması.</p>
+    </div>
+    <div class="card">
+      <h3>Yeni Proje ve İnşaat</h3>
+      <p>Modern mimari, kaliteli malzeme ve mühendislik ile yeni yapı inşası.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Devlet Destekleri</h2>
+  <div class="text-box">
+    <ul>
+      <li>✔️ Kira yardımı</li>
+      <li>✔️ Faiz destekli kredi imkanları</li>
+      <li>✔️ Vergi ve harç muafiyetleri</li>
+      <li>✔️ Taşınma yardımları</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Neden TİMA PROJE?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Güven</h3>
+      <p>Şeffaf süreç, sağlam sözleşmeler ve güvenli teslim.</p>
+    </div>
+    <div class="card">
+      <h3>Lüks & Kalite</h3>
+      <p>Estetik mimari, kaliteli işçilik ve prestijli yaşam alanları.</p>
+    </div>
+    <div class="card">
+      <h3>Değer Artışı</h3>
+      <p>Gayrimenkulünüzün piyasa değerini artıran projeler.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>TİMA PROJE</h2>
+  <p>📞 0555 799 91 11</p>
+  <p>📍 İstanbul</p>
+  <p>© 2026 TİMA PROJE – Tüm Hakları Saklıdır</p>
+</footer>
+
+</body>
+</html>
