@@ -3,122 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA PROJE | Kentsel Dönüşüm</title>
+    <title>TİMA PROJE | İlçe Bazlı Analiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; margin: 0; }
+        body { background-color: #050505; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; margin: 0; }
         .font-luxury { font-family: 'Playfair Display', serif; }
-
-        /* SİNEMATİK GİRİŞ EFEKTİ */
-        .hero-section { position: relative; height: 80vh; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000; }
-        
-        /* Soldan gelen eski bina */
-        .slide-left { 
-            position: absolute; left: 0; top: 0; width: 50%; height: 100%; 
-            object-fit: cover; opacity: 0.4; filter: grayscale(100%);
-            animation: slideInLeft 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-        
-        /* Sağdan gelen yeni bina */
-        .slide-right { 
-            position: absolute; right: 0; top: 0; width: 50%; height: 100%; 
-            object-fit: cover; opacity: 0.6;
-            animation: slideInRight 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes slideInLeft { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
-        @keyframes slideInRight { 0% { transform: translateX(100%); } 100% { transform: translateX(0); } }
-
-        /* Yazıların öne çıkması için gölge */
-        .hero-content { z-index: 10; text-align: center; text-shadow: 0 0 50px rgba(0,0,0,1); }
-
-        /* KAYAN YAZI (GÖZE SOKAN ŞERİT) */
-        .marquee-container { background: #b91c1c; padding: 15px 0; transform: rotate(-1.5deg); width: 110%; margin-left: -5%; box-shadow: 0 0 40px rgba(185, 28, 28, 0.5); z-index: 20; position: relative; }
-        .marquee-text { display: inline-block; white-space: nowrap; animation: scroll 30s linear infinite; font-weight: 800; font-size: 1.2rem; letter-spacing: 2px; }
-        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-        /* 4 BÖLÜM PANELLERİ */
-        .step-card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 30px; border-radius: 20px; transition: 0.3s; }
-        .step-card:hover { border-color: #b91c1c; transform: scale(1.05); }
+        .hero-section { position: relative; height: 60vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .slide-left { position: absolute; left: 0; top: 0; width: 50%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1); animation: slideInLeft 1.2s ease-out forwards; }
+        .slide-right { position: absolute; right: 0; top: 0; width: 50%; height: 100%; object-fit: cover; opacity: 0.5; animation: slideInRight 1.2s ease-out forwards; }
+        @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+        @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        .marquee-container { background: #b91c1c; padding: 12px 0; transform: rotate(-1deg); width: 110%; margin-left: -5%; z-index: 20; position: relative; }
+        .marquee-text { display: inline-block; white-space: nowrap; animation: scroll 30s linear infinite; font-weight: 800; font-size: 1.1rem; }
+        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        .calc-card { background: #111; border: 1px solid #222; border-radius: 24px; padding: 24px; }
+        .input-group { background: #000; border: 1px solid #333; border-radius: 12px; padding: 12px; margin-top: 8px; }
+        .input-group select, .input-group input { background: transparent; border: none; color: white; width: 100%; font-size: 1.2rem; font-weight: bold; outline: none; }
+        option { background: #111; color: white; }
     </style>
 </head>
 <body>
 
     <header class="hero-section">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000" class="slide-left" alt="Eski Bina">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000" class="slide-right" alt="Yeni Bina">
-        
-        <div class="hero-content">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000" class="slide-left">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000" class="slide-right">
+        <div class="relative z-10 text-center">
             <h1 class="font-luxury text-7xl md:text-9xl italic leading-none">TİMA <span class="text-red-600">PROJE</span></h1>
-            <p class="text-xs md:text-lg tracking-[0.6em] uppercase mt-4 text-gray-300">Geleceği İnşa Ediyoruz</p>
+            <p class="tracking-[0.5em] uppercase text-gray-400 mt-4 text-xs">İlçe Bazlı Dönüşüm Analizi</p>
         </div>
     </header>
 
-    <div class="marquee-container my-16">
-        <div class="marquee-text">
-             🏗️ C30/37 YÜKSEK DAYANIMLI BETON — 🍳 SIEMENS ANKASTRE SET — 🧱 İÇDAŞ MARKA NERVÜRLÜ ÇELİK — 🪟 EGEPEN ANTRASİT GRİ SERİ — 🌡️ JOTUN DIŞ CEPHE BOYASI — 🏗️ C30/37 YÜKSEK DAYANIMLI BETON — 🍳 SIEMENS ANKASTRE SET — 🧱 İÇDAŞ MARKA NERVÜRLÜ ÇELİK —
-        </div>
+    <div class="marquee-container my-10">
+        <div class="marquee-text">🏗️ C30/37 BETON — 🍳 SIEMENS ANKASTRE — 🧱 İÇDAŞ ÇELİK — 🪟 EGEPEN ANTRASİT — 🏗️ 2026 DEPREM YÖNETMELİĞİ —</div>
     </div>
 
-    <section class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
-        <div class="step-card text-center">
-            <div class="text-red-600 text-4xl mb-4 font-black">01</div>
-            <h3 class="font-luxury text-xl mb-2">BİNA DIŞI</h3>
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Estetik Dış Cephe</p>
-        </div>
-        <div class="step-card text-center border-b-4 border-red-600">
-            <div class="text-red-600 text-4xl mb-4 font-black">02</div>
-            <h3 class="font-luxury text-xl mb-2">DAİRE PLANI</h3>
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Modern İç Mimari</p>
-        </div>
-        <div class="step-card text-center">
-            <div class="text-red-600 text-4xl mb-4 font-black">03</div>
-            <h3 class="font-luxury text-xl mb-2">SANAL TUR</h3>
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest">3D Gezinti</p>
-        </div>
-        <div class="step-card text-center">
-            <div class="text-red-600 text-4xl mb-4 font-black">04</div>
-            <h3 class="font-luxury text-xl mb-2">MANZARA</h3>
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Geleceğe Bakış</p>
+    <section class="max-w-6xl mx-auto p-6 mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-6">
+                <div class="calc-card">
+                    <h3 class="text-red-600 font-bold uppercase text-xs mb-4">📍 1. Adım: Konum Seçin</h3>
+                    <div class="input-group">
+                        <label class="text-[10px] text-gray-500 uppercase">Bulunduğunuz İlçe</label>
+                        <select id="ilceSecimi" onchange="analizEt()">
+                            <option value="2.0">Kadıköy (Emsal: 2.0)</option>
+                            <option value="1.5">Beşiktaş (Emsal: 1.5)</option>
+                            <option value="2.5">Üsküdar (Emsal: 2.5)</option>
+                            <option value="1.8">Maltepe (Emsal: 1.8)</option>
+                            <option value="2.2">Kartal (Emsal: 2.2)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calc-card">
+                    <h3 class="text-red-600 font-bold uppercase text-xs mb-4">📐 2. Adım: Arsa Bilgisi</h3>
+                    <div class="input-group">
+                        <label class="text-[10px] text-gray-500 uppercase">Toplam Arsa Alanı (m²)</label>
+                        <input type="number" id="arsaAlani" value="1000" oninput="analizEt()">
+                    </div>
+                </div>
+
+                <div class="calc-card">
+                    <h3 class="text-red-600 font-bold uppercase text-xs mb-4">🏢 3. Adım: Yeni Bina Dağılımı</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black/50 p-4 rounded-xl border border-zinc-800 text-center">
+                            <span class="text-2xl font-bold text-red-600 block" id="ikiArtiBirAdet">0</span>
+                            <span class="text-[10px] text-gray-500 uppercase">2+1 Daire</span>
+                        </div>
+                        <div class="bg-black/50 p-4 rounded-xl border border-zinc-800 text-center">
+                            <span class="text-2xl font-bold text-red-600 block" id="ucArtiBirAdet">0</span>
+                            <span class="text-[10px] text-gray-500 uppercase">3+1 Daire</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="calc-card text-center">
+                    <h3 class="text-gray-500 text-[10px] uppercase mb-2 italic">Hesaplanan İnşaat Alanı</h3>
+                    <div id="toplamInsaat" class="text-4xl font-luxury text-white">0 m²</div>
+                    <canvas id="dagilimChart" class="mt-6"></canvas>
+                </div>
+                
+                <div class="bg-red-600 p-6 rounded-3xl text-center shadow-lg">
+                    <p class="text-[10px] uppercase font-bold opacity-80">Tahmini Proje Değeri</p>
+                    <div id="projeDegeri" class="text-3xl font-luxury mt-1">0 TL</div>
+                    <a href="https://wa.me/905XXXXXXXXX" class="block w-full bg-white text-red-600 font-bold py-3 rounded-xl mt-4 text-sm uppercase">Hemen Teklif Al</a>
+                </div>
+            </div>
+
         </div>
     </section>
-
-    <section class="max-w-4xl mx-auto p-12 bg-zinc-900 rounded-[40px] border border-zinc-800 mb-20">
-        <h2 class="font-luxury text-4xl text-center mb-10">ANALİZ <span class="text-red-600">MERKEZİ</span></h2>
-        <div class="grid md:grid-cols-2 gap-10">
-            <div>
-                <label class="text-xs font-bold text-gray-400 uppercase">Daireniz Kaç m²?</label>
-                <input type="number" id="m2" oninput="hesapla()" class="w-full bg-black border-b-2 border-red-600 p-4 text-4xl font-light focus:outline-none mt-2" placeholder="100">
-            </div>
-            <div class="space-y-4">
-                <div class="p-6 bg-black rounded-2xl border border-zinc-800">
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">İnşaat Maliyeti</p>
-                    <div id="maliyet" class="text-3xl font-luxury">0 TL</div>
-                </div>
-                <div class="p-6 bg-red-900/10 rounded-2xl border border-red-900/30">
-                    <p class="text-[10px] text-red-600 uppercase tracking-widest font-bold">Toplam Kira Kazancınız</p>
-                    <div id="kira" class="text-3xl font-luxury text-red-600">0 TL</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="text-center pb-32">
-        <a href="https://wa.me/905XXXXXXXXX" class="bg-red-600 text-white px-20 py-6 rounded-full font-black text-xl uppercase tracking-widest shadow-[0_0_50px_rgba(185,28,28,0.4)] hover:scale-110 transition inline-block">
-            TEKLİF ALMAK İÇİN TIKLAYIN
-        </a>
-    </div>
 
     <script>
-        function hesapla() {
-            let m = document.getElementById('m2').value;
-            if(m > 0) {
-                document.getElementById('maliyet').innerText = (m * 22500).toLocaleString('tr-TR') + ' TL';
-                document.getElementById('kira').innerText = (18 * 5500).toLocaleString('tr-TR') + ' TL';
-            }
-        }
-    </script>
+        let myChart;
+        function analizEt() {
+            const emsal = parseFloat(document.getElementById('ilceSecimi').value);
+            const arsa = document.getElementById('arsaAlani').value;
+            const toplamInsaat = arsa * emsal;
+            
+            const ikiArtiBir = Math.floor((toplamInsaat * 0.4) / 110);
+            const ucArtiBir = Math.floor((toplamInsaat * 0.6) / 145);
 
+            document.getElementById('toplamInsaat').innerText = Math.floor(toplamInsaat).toLocaleString() + ' m²';
+            document.getElementById('ikiArtiBirAdet').innerText = ikiArtiBir;
+            document.getElementById('ucArtiBirAdet').innerText = ucArtiBir;
+            document.getElementById('projeDegeri').innerText = (toplamInsaat * 45000).toLocaleString() + ' TL';
+
+            const ctx = document.getElementById('dagilimChart').getContext('2d');
+            if (myChart) myChart.destroy();
+            myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [ikiArtiBir, ucArtiBir],
+                        backgroundColor: ['#b91c1c', '#333'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { cutout: '80%', plugins: { legend: { display: false } } }
+            });
+        }
+        window.onload = analizEt;
+    </script>
 </body>
 </html>
