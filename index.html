@@ -3,107 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA PROJE | Kentsel Dönüşümün Değişen Yüzü</title>
+    <title>TİMA PROJE | Kentsel Dönüşümün Yeni Yüzü</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; overflow-x: hidden; }
-        .red-gradient { background: linear-gradient(90deg, #991b1b, #e11d48, #991b1b); }
-        .marquee-container { background: #e11d48; overflow: hidden; white-space: nowrap; padding: 10px 0; border-top: 2px solid #fff; border-bottom: 2px solid #fff; }
-        .marquee-text { display: inline-block; animation: kaydir 30s linear infinite; font-weight: bold; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
-        @keyframes kaydir { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .glass-box { background: #111; border: 1px solid #333; transition: 0.3s; }
-        .glass-box:hover { border-color: #e11d48; transform: scale(1.02); }
-        .after-before-card { position: relative; overflow: hidden; border-radius: 12px; }
-        .after-before-card img { transition: transform 0.5s ease-in-out; }
-        .after-before-card:hover img { transform: scale(1.05); }
-        .before-text { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
-        .after-text { position: absolute; bottom: 10px; right: 10px; background: #e11d48; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
+        :root { --tima-red: #b91c1c; --tima-dark-red: #7f1d1d; }
+        body { background-color: #050505; color: #f4f4f4; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        /* Genel Arka Plan */
+        .bg-tima-dark { background-color: #050505; }
+        
+        /* Giriş Banner'ı için Özel Efektler */
+        .hero-banner { position: relative; height: 75vh; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #000; }
+        .hero-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(at center center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 70%); z-index: 2; }
+        .hero-banner::after { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" opacity=".05"><filter id="f"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" seed="0"/><feDiffuseLighting surfaceScale="2" diffuseConstant="1" lightingColor="#fff"><feDistantLight azimuth="235" elevation="60"/></feDiffuseLighting></filter><rect width="100" height="100" filter="url(%23f)"/></svg>'); background-size: cover; z-index: 1; pointer-events: none; }
+
+        .banner-image { position: absolute; top: 0; height: 100%; object-fit: cover; opacity: 0.8; animation-duration: 2s; animation-fill-mode: forwards; z-index: 1; }
+        .image-left { left: 0; width: 60%; animation-name: slideFromLeft; }
+        .image-right { right: 0; width: 60%; animation-name: slideFromRight; }
+
+        @keyframes slideFromLeft { 0% { transform: translateX(-100%); opacity: 0; } 100% { transform: translateX(0); opacity: 0.8; } }
+        @keyframes slideFromRight { 0% { transform: translateX(100%); opacity: 0; } 100% { transform: translateX(0); opacity: 0.8; } }
+
+        .hero-text { position: relative; z-index: 3; text-align: center; }
+        
+        /* Kayan Yazı */
+        .marquee-container { background: var(--tima-red); padding: 15px 0; transform: rotate(-1deg); width: 110%; margin-left: -5%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 10; position: relative; }
+        .marquee-text { display: inline-block; white-space: nowrap; animation: kaydir 40s linear infinite; font-weight: 800; font-size: 1.1rem; letter-spacing: 3px; }
+        @keyframes kaydir { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Kartlar */
+        .card-premium { background: linear-gradient(145deg, #111, #080808); border: 1px solid #222; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-premium:hover { border-color: var(--tima-red); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(185, 28, 28, 0.1); }
+        
+        /* Butonlar */
+        .btn-luxury { background: linear-gradient(to right, var(--tima-dark-red), var(--tima-red)); transition: 0.3s; box-shadow: 0 4px 15px rgba(185, 28, 28, 0.4); }
+        .btn-luxury:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(185, 28, 28, 0.6); }
+
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     </style>
 </head>
-<body>
+<body class="bg-tima-dark">
 
-    <header class="py-6 bg-zinc-950 text-center border-b border-zinc-800">
-        <h1 class="text-5xl font-black italic text-white">TİMA <span class="text-red-600">PROJE</span></h1>
-        <p class="text-xs text-gray-500 mt-2 uppercase tracking-[0.5em]">Kentsel Dönüşümün Yeni Yüzü</p>
-    </header>
-
-    <section class="max-w-7xl mx-auto p-4 grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-        <div class="glass-box p-6 rounded-2xl text-center">
-            <div class="text-3xl mb-2">🏢</div>
-            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">Dış Cephe</h3>
-            <p class="text-[10px] text-gray-400">360 Derece Tasarım</p>
-        </div>
-        <div class="glass-box p-6 rounded-2xl text-center border-red-600 border-2">
-            <div class="text-3xl mb-2">📐</div>
-            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">Daire Planı</h3>
-            <p class="text-[10px] text-gray-400">Üstten 3D Oda Yerleşimi</p>
-        </div>
-        <div class="glass-box p-6 rounded-2xl text-center text-white">
-            <div class="text-3xl mb-2">👟</div>
-            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">İç Tur</h3>
-            <p class="text-[10px] text-gray-400">Oda Oda Sanal Gezinti</p>
-        </div>
-        <div class="glass-box p-6 rounded-2xl text-center">
-            <div class="text-3xl mb-2">☕</div>
-            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">Balkon</h3>
-            <p class="text-[10px] text-gray-400">Evinizden Manzara Keyfi</p>
+    <section class="hero-banner">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1200" class="banner-image image-left" style="animation-delay: 0.2s;">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" class="banner-image image-right" style="animation-delay: 0.4s;">
+        
+        <div class="hero-text">
+            <h1 class="font-luxury text-7xl md:text-9xl font-black italic tracking-tighter text-white mb-2 leading-none">TİMA <span class="text-red-700">PROJE</span></h1>
+            <p class="text-gray-300 text-sm md:text-xl tracking-[0.8em] uppercase font-light">Dönüşümün Başyapıtları</p>
         </div>
     </section>
 
-    <div class="marquee-container my-12">
+    <div class="marquee-container my-10">
         <div class="marquee-text text-white">
-            ⚠️ TİMA FARKI: &nbsp;&nbsp;&nbsp; 🏗️ C30/37 YÜKSEK DAYANIMLI BETON &nbsp;&nbsp;&nbsp; 🍳 SIEMENS ANKASTRE SET &nbsp;&nbsp;&nbsp; 🧱 İÇDAŞ MARKA S420 NERVÜRLÜ ÇELİK &nbsp;&nbsp;&nbsp; 🪟 EGEPEN ANTRASİT GRİ SERİ &nbsp;&nbsp;&nbsp; 💎 İSPANYOL GRANİT TEZGAH &nbsp;&nbsp;&nbsp; 🌡️ JOTUN DIŞ CEPHE BOYASI &nbsp;&nbsp;&nbsp; 🚀 7/24 GÜVENLİK KAMERA SİSTEMİ &nbsp;&nbsp;&nbsp; 🏗️ 2019 DEPREM YÖNETMELİĞİNE %100 UYGUN &nbsp;&nbsp;&nbsp;
+            C30/37 DAYANIMLI BETON — SIEMENS ANKASTRE — İÇDAŞ ÇELİK — EGEPEN ANTRASİT SERİ — JOTUN CEPHE BOYASI — İSPANYOL GRANİT — 2026 DEPREM YÖNETMELİĞİ — C30/37 DAYANIMLI BETON — SIEMENS ANKASTRE — İÇDAŞ ÇELİK — EGEPEN ANTRASİT SERİ — JOTUN CEPHE BOYASI — İSPANYOL GRANİT — 2026 DEPREM YÖNETMELİĞİ —
         </div>
     </div>
 
-    <section class="max-w-6xl mx-auto p-8 bg-zinc-900 rounded-3xl border border-red-900 shadow-2xl">
-        <h2 class="text-2xl font-black text-center mb-8 uppercase italic text-white">DÖNÜŞÜMÜ GÖRÜN: ÖNCESİ & SONRASI</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="after-before-card">
-                <img src="https://images.unsplash.com/photo-1616047029548-ba3e1a067645?q=80&w=600" alt="Öncesi Bina" class="w-full h-auto rounded-lg">
-                <span class="before-text">ÖNCESİ</span>
-                <span class="after-text bg-red-600">SONRASI</span>
-            </div>
-             <div class="after-before-card">
-                <img src="https://images.unsplash.com/photo-1582294155160-b6f7091f13f1?q=80&w=600" alt="Öncesi Bina" class="w-full h-auto rounded-lg">
-                <span class="before-text">ÖNCESİ</span>
-                <span class="after-text bg-red-600">SONRASI</span>
-            </div>
-             <div class="after-before-card">
-                <img src="https://images.unsplash.com/photo-1543285786-ff7ed216834b?q=80&w=600" alt="Öncesi Bina" class="w-full h-auto rounded-lg">
-                <span class="before-text">ÖNCESİ</span>
-                <span class="after-text bg-red-600">SONRASI</span>
-            </div>
+    <section class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-4 gap-6 mt-10">
+        <div class="card-premium p-8 rounded-3xl text-center">
+            <span class="text-red-700 text-4xl block mb-4">01</span>
+            <h3 class="font-luxury text-xl mb-2">BİNA DIŞI</h3>
+            <p class="text-xs text-gray-500 leading-relaxed uppercase tracking-widest">3D Cephe Tasarımı</p>
         </div>
-        <p class="text-center text-gray-500 text-sm mt-8 italic">"Yıkımdan anahtar teslime, her projede imzamız var."</p>
+        <div class="card-premium p-8 rounded-3xl text-center border-b-4 border-red-800">
+            <span class="text-red-700 text-4xl block mb-4">02</span>
+            <h3 class="font-luxury text-xl mb-2">KAT PLANI</h3>
+            <p class="text-xs text-gray-500 leading-relaxed uppercase tracking-widest">Fonksiyonel Yerleşim</p>
+        </div>
+        <div class="card-premium p-8 rounded-3xl text-center">
+            <span class="text-red-700 text-4xl block mb-4">03</span>
+            <h3 class="font-luxury text-xl mb-2">SANAL TUR</h3>
+            <p class="text-xs text-gray-500 leading-relaxed uppercase tracking-widest">Oda Oda Gezinti</p>
+        </div>
+        <div class="card-premium p-8 rounded-3xl text-center">
+            <span class="text-red-700 text-4xl block mb-4">04</span>
+            <h3 class="font-luxury text-xl mb-2">MANZARA</h3>
+            <p class="text-xs text-gray-500 leading-relaxed uppercase tracking-widest">Balkon Keyfi</p>
+        </div>
     </section>
 
-    <section class="max-w-4xl mx-auto p-8 mt-16 bg-zinc-900 rounded-3xl border border-red-900 shadow-2xl">
-        <h2 class="text-2xl font-black text-center mb-8 uppercase italic text-white">HIZLI MALİYET VE KAZANÇ HESABI</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div>
-                <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">Daireniz Kaç m2? (Brüt)</label>
-                <input type="number" id="m2" oninput="hesapla()" class="w-full bg-black border-2 border-red-600 p-4 text-2xl font-bold rounded-lg mt-2 focus:outline-none" placeholder="100">
+    <section class="max-w-4xl mx-auto p-12 bg-zinc-900/50 rounded-[3rem] border border-zinc-800 backdrop-blur-xl my-20">
+        <h2 class="font-luxury text-3xl text-center mb-10 italic">Yatırım Analizi</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="space-y-6">
+                <label class="text-xs tracking-widest text-gray-500 uppercase font-bold">Daire Büyüklüğü (m²)</label>
+                <input type="number" id="m2" oninput="hesapla()" class="w-full bg-transparent border-b-2 border-zinc-700 p-4 text-4xl font-light focus:border-red-700 focus:outline-none transition" placeholder="100">
             </div>
-            <div class="bg-black p-6 rounded-xl border border-zinc-800">
-                <p class="text-xs text-gray-500 uppercase">Tahmini İnşaat Maliyetiniz:</p>
-                <div id="maliyet" class="text-3xl font-black text-red-600 mt-2">0 TL</div>
-                <div class="mt-4 pt-4 border-t border-zinc-800 text-sm text-green-500 font-bold italic">
-                    💰 TOPLAM KİRA YARDIMI KAZANCINIZ: <span id="kira">0 TL</span>
+            <div class="space-y-4">
+                <div class="p-6 bg-black/50 rounded-2xl border border-zinc-800">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Tahmini İnşaat Bedeli</p>
+                    <div id="maliyet" class="text-3xl font-luxury text-white italic">0 TL</div>
+                </div>
+                <div class="p-6 bg-red-900/10 rounded-2xl border border-red-900/20">
+                    <p class="text-[10px] text-red-500 uppercase tracking-widest mb-2">Devlet Kira Desteği (Toplam)</p>
+                    <div id="kira" class="text-3xl font-luxury text-red-600 italic">0 TL</div>
                 </div>
             </div>
         </div>
-        <p class="text-center text-[10px] text-gray-600 mt-6 italic">Hesaplamalar ortalama değerlerdir. Net bilgi için WhatsApp'tan iletişime geçin.</p>
     </section>
 
-    <div class="text-center py-20">
-        <a href="https://wa.me/905XXXXXXXXX" class="bg-red-600 text-white px-12 py-6 rounded-full font-black text-2xl shadow-[0_0_30px_rgba(225,29,72,0.5)] hover:scale-110 transition inline-block">
-            ÜCRETSİZ TEKLİF İÇİN WHATSAPP'TAN YAZIN
+    <div class="text-center pb-32">
+        <a href="https://wa.me/905XXXXXXXXX" class="btn-luxury text-white px-20 py-6 rounded-full font-bold text-xl uppercase tracking-widest">
+            Bize Ulaşın
         </a>
     </div>
 
-    <footer class="py-8 bg-zinc-950 text-center text-[10px] text-gray-700 uppercase tracking-widest border-t border-zinc-900">
+    <footer class="py-8 bg-black border-t border-zinc-900 text-center text-[10px] text-gray-700 uppercase tracking-widest">
         TİMA GROUP İSTANBUL © 2026 - Tüm Hakları Saklıdır.
     </footer>
 
@@ -111,16 +119,13 @@
         function hesapla() {
             let m = document.getElementById('m2').value;
             if(m > 0) {
-                // Maliyet: m2 başına 22.500 TL (Bu değeri piyasaya göre güncelleyebiliriz)
-                document.getElementById('maliyet').innerText = (m * 22500).toLocaleString('tr-TR') + ' TL'; 
-                // Kira Yardımı: 18 ay boyunca aylık 5.500 TL
-                document.getElementById('kira').innerText = (18 * 5500).toLocaleString('tr-TR') + ' TL'; 
+                document.getElementById('maliyet').innerText = (m * 24000).toLocaleString('tr-TR') + ' TL';
+                document.getElementById('kira').innerText = (18 * 5500).toLocaleString('tr-TR') + ' TL';
             } else {
                 document.getElementById('maliyet').innerText = '0 TL';
                 document.getElementById('kira').innerText = '0 TL';
             }
         }
     </script>
-
 </body>
 </html>
