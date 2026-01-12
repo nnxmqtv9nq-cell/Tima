@@ -3,98 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA PROJE | Kentsel Dönüşüm Analiz</title>
+    <title>TİMA PROJE | Kentsel Dönüşüm</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; }
-        .red-gradient { background: linear-gradient(135deg, #e11d48 0%, #991b1b 100%); }
-        .input-box { background: #111; border: 1px solid #333; padding: 12px; border-radius: 8px; color: white; width: 100%; margin-top: 5px; }
-        .result-card { background: #1a1a1a; border-left: 4px solid #e11d48; padding: 20px; border-radius: 10px; }
+        body { background-color: #000; color: #fff; font-family: sans-serif; overflow-x: hidden; }
+        .red-gradient { background: linear-gradient(90deg, #991b1b, #e11d48, #991b1b); }
+        
+        /* KAYAN YAZI AYARI */
+        .marquee-container { background: #e11d48; overflow: hidden; white-space: nowrap; padding: 10px 0; border-top: 2px solid #fff; border-bottom: 2px solid #fff; }
+        .marquee-text { display: inline-block; animation: kaydir 30s linear infinite; font-weight: bold; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        @keyframes kaydir { 
+            0% { transform: translateX(100%); } 
+            100% { transform: translateX(-100%); } 
+        }
+
+        .glass-box { background: #111; border: 1px solid #333; transition: 0.3s; }
+        .glass-box:hover { border-color: #e11d48; transform: scale(1.02); }
     </style>
 </head>
 <body>
 
-    <header class="py-6 bg-zinc-900 text-center border-b-4 border-red-600">
-        <h1 class="text-3xl font-black text-white uppercase tracking-tighter">TİMA <span class="text-red-600">PROJE</span> HESAPLAMA MERKEZİ</h1>
-        <p class="text-gray-400 text-xs mt-1 uppercase tracking-widest">Yaşlı ve Emekli Dostu - Çok Kolay Kullanım</p>
+    <header class="py-6 text-center">
+        <h1 class="text-5xl font-black italic text-white">TİMA <span class="text-red-600">PROJE</span></h1>
+        <p class="text-xs text-gray-500 mt-2 uppercase tracking-[0.5em]">Kentsel Dönüşümün Lüks Yüzü</p>
     </header>
 
-    <main class="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
-        
-        <section class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 shadow-2xl">
-            <h2 class="text-xl font-bold text-red-600 mb-6 uppercase border-b border-red-900 pb-2">1. Bilgilerinizi Girin</h2>
-            
-            <div class="space-y-6">
-                <div>
-                    <label class="text-sm font-bold text-gray-300 uppercase italic">Daireniz Kaç Metrekare? (Brüt)</label>
-                    <input type="number" id="m2" placeholder="Örn: 100" class="input-box text-xl font-bold" oninput="hesapla()">
+    <section class="max-w-7xl mx-auto p-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass-box p-6 rounded-2xl text-center">
+            <div class="text-3xl mb-2">🏢</div>
+            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">Dış Cephe</h3>
+            <p class="text-[10px] text-gray-400">360 Derece Bina Tasarımı</p>
+        </div>
+        <div class="glass-box p-6 rounded-2xl text-center border-red-600 border-2">
+            <div class="text-3xl mb-2">📐</div>
+            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">Daire Planı</h3>
+            <p class="text-[10px] text-gray-400">Üstten 3D Oda Yerleşimi</p>
+        </div>
+        <div class="glass-box p-6 rounded-2xl text-center">
+            <div class="text-3xl mb-2">👟</div>
+            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">İç Tur</h3>
+            <p class="text-[10px] text-gray-400">Oda Oda Sanal Gezinti</p>
+        </div>
+        <div class="glass-box p-6 rounded-2xl text-center">
+            <div class="text-3xl mb-2">☕</div>
+            <h3 class="text-red-600 font-bold text-sm uppercase mb-1">Balkon</h3>
+            <p class="text-[10px] text-gray-400">Evinizden Manzara Keyfi</p>
+        </div>
+    </section>
+
+    <div class="marquee-container my-12">
+        <div class="marquee-text">
+            ⚠️ TİMA STANDARTLARI: &nbsp;&nbsp;&nbsp; 🏗️ C30/37 YÜKSEK DAYANIMLI BETON &nbsp;&nbsp;&nbsp; 🍳 SIEMENS ANKASTRE SET &nbsp;&nbsp;&nbsp; 🧱 İÇDAŞ MARKA S420 NERVÜRLÜ ÇELİK &nbsp;&nbsp;&nbsp; 🪟 EGEPEN ANTRASİT GRİ SERİ &nbsp;&nbsp;&nbsp; 💎 İSPANYOL GRANİT TEZGAH &nbsp;&nbsp;&nbsp; 🌡️ JOTUN DIŞ CEPHE BOYASI &nbsp;&nbsp;&nbsp; 🚀 7/24 GÜVENLİK KAMERA SİSTEMİ &nbsp;&nbsp;&nbsp; 🏗️ 2019 DEPREM YÖNETMELİĞİNE %100 UYGUN &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <section class="max-w-4xl mx-auto p-8 bg-zinc-900 rounded-3xl border border-red-900 shadow-2xl">
+        <h2 class="text-2xl font-black text-center mb-8 uppercase italic">Hızlı Maliyet Hesabı</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase">Daireniz Kaç m2?</label>
+                <input type="number" id="m2" oninput="hesapla()" class="w-full bg-black border-2 border-red-600 p-4 text-2xl font-bold rounded-lg mt-2 focus:outline-none" placeholder="100">
+            </div>
+            <div class="bg-black p-6 rounded-xl border border-zinc-800">
+                <p class="text-xs text-gray-500 uppercase">İnşaat Maliyetiniz:</p>
+                <div id="maliyet" class="text-3xl font-black text-red-600 mt-2">0 TL</div>
+                <div class="mt-4 pt-4 border-t border-zinc-800 text-[10px] text-green-500 font-bold italic">
+                    💰 TOPLAM KİRA YARDIMI KAZANCINIZ: <span id="kira">0 TL</span>
                 </div>
-
-                <div>
-                    <label class="text-sm font-bold text-gray-300 uppercase italic">Kaç Katlı Bina İstiyorsunuz?</label>
-                    <input type="number" id="kat" placeholder="Örn: 5" class="input-box text-xl font-bold" oninput="hesapla()">
-                </div>
-
-                <div class="p-4 bg-red-950/30 rounded-lg text-xs text-red-200">
-                    💡 <b>Not:</b> Hesaplamalar piyasa ortalamalarına göredir. Net teklif için yan taraftaki WhatsApp butonuna basın.
-                </div>
-            </div>
-        </section>
-
-        <section class="space-y-6">
-            <h2 class="text-xl font-bold text-red-600 mb-6 uppercase border-b border-red-900 pb-2">2. Tahmini Kazancınız</h2>
-            
-            <div class="result-card">
-                <p class="text-gray-400 text-xs uppercase font-bold tracking-widest mb-1">İnşaat Maliyet Analizi</p>
-                <div class="text-3xl font-black text-white" id="maliyet-sonuc">0 <span class="text-sm">TL</span></div>
-            </div>
-
-            <div class="result-card border-l-green-600">
-                <p class="text-gray-400 text-xs uppercase font-bold tracking-widest mb-1">Toplam Alacağınız Kira Yardımı</p>
-                <div class="text-3xl font-black text-green-500" id="kira-sonuc">0 <span class="text-sm">TL</span></div>
-            </div>
-
-            <div class="pt-4">
-                <a href="https://wa.me/905XXXXXXXXX" class="red-gradient w-full py-5 rounded-xl text-center font-black text-xl text-white block shadow-lg hover:scale-105 transition">
-                    TEKLİF ALMAK İÇİN TIKLAYIN
-                </a>
-                <p class="text-center text-[10px] text-gray-600 mt-2 italic">Uzmanımız 5 dakika içinde size WhatsApp üzerinden dönüş yapacaktır.</p>
-            </div>
-        </section>
-
-    </main>
-
-    <section class="max-w-5xl mx-auto px-6 py-10 border-t border-zinc-900 mt-10">
-        <h3 class="text-red-600 font-bold mb-4 uppercase text-center italic text-sm">Devlet Destekleri ve Haklarınız</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div class="p-4 bg-zinc-900 rounded-lg border border-zinc-800">
-                <p class="text-red-500 font-bold">5.500 TL</p>
-                <p class="text-[10px] text-gray-400">AYLIK KİRA DESTEĞİ</p>
-            </div>
-            <div class="p-4 bg-zinc-900 rounded-lg border border-zinc-800">
-                <p class="text-red-500 font-bold">11.000 TL</p>
-                <p class="text-[10px] text-gray-400">TAŞINMA YARDIMI</p>
-            </div>
-            <div class="p-4 bg-zinc-900 rounded-lg border border-zinc-800">
-                <p class="text-red-500 font-bold">0.69 FAİZ</p>
-                <p class="text-[10px] text-gray-400">DÖNÜŞÜM KREDİSİ</p>
             </div>
         </div>
     </section>
 
+    <div class="text-center py-20">
+        <a href="https://wa.me/905XXXXXXXXX" class="bg-red-600 text-white px-12 py-6 rounded-full font-black text-2xl shadow-[0_0_30px_rgba(225,29,72,0.5)] hover:scale-110 transition inline-block">
+            WHATSAPP'TAN TEKLİF AL
+        </a>
+    </div>
+
     <script>
         function hesapla() {
-            let m2 = document.getElementById('m2').value;
-            let kat = document.getElementById('kat').value;
-            
-            // Tahmini maliyet (Örn: m2 başı 20.000 TL inşaat maliyeti)
-            if(m2 > 0) {
-                let toplamMaliyet = m2 * 20000;
-                document.getElementById('maliyet-sonuc').innerText = toplamMaliyet.toLocaleString() + ' TL';
-                
-                // Kira yardımı (Örn: 18 ay boyunca 5.500 TL)
-                let toplamKira = 18 * 5500;
-                document.getElementById('kira-sonuc').innerText = toplamKira.toLocaleString() + ' TL';
+            let m = document.getElementById('m2').value;
+            if(m > 0) {
+                document.getElementById('maliyet').innerText = (m * 22500).toLocaleString() + ' TL';
+                document.getElementById('kira').innerText = (18 * 5500).toLocaleString() + ' TL';
             }
         }
     </script>
