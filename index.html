@@ -3,73 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA İnşaat | Kentsel Dönüşümün Lüks Yüzü</title>
+    <title>TİMA İNŞAAT | Prestijli Dönüşüm</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; scroll-behavior: smooth; }
         .font-luxury { font-family: 'Playfair Display', serif; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%); }
         .gold-text { color: #d4af37; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.2); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.2); transition: 0.3s; }
+        .glass-card:hover { border-color: #d4af37; transform: translateY(-5px); }
     </style>
 </head>
 <body>
 
-    <header class="relative min-h-screen flex items-center justify-center text-center p-6">
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+    <header class="relative h-[80vh] flex items-center justify-center text-center p-6">
+        <div class="absolute inset-0 z-0 opacity-50">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
         </div>
-        <div class="relative z-10 max-w-4xl">
-            <h1 class="font-luxury text-5xl md:text-8xl mb-6 tracking-tighter">TİMA <span class="gold-text italic">PRESTİJ</span></h1>
-            <p class="text-lg md:text-2xl font-light text-gray-300 mb-10 tracking-widest uppercase">Geleceği Altın Standartlarla İnşa Ediyoruz</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#hesapla" class="gold-gradient text-black px-10 py-4 rounded-full font-bold text-lg transition transform hover:scale-105">Maliyet Hesapla</a>
-                <a href="https://wa.me/905XXXXXXXXX" class="border border-white/30 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition">WhatsApp Danışman</a>
-            </div>
+        <div class="relative z-10">
+            <h1 class="font-luxury text-5xl md:text-8xl mb-4 uppercase tracking-tighter">TİMA <span class="gold-text">İNŞAAT</span></h1>
+            <p class="text-xl md:text-2xl font-light tracking-[0.3em] text-gray-300">DÖNÜŞÜMÜN PRESTİJLİ YÜZÜ</p>
         </div>
     </header>
 
-    <section id="hesapla" class="py-20 px-4">
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-luxury text-4xl mb-4">Hizmet Alanlarımız</h2>
+            <div class="w-24 h-1 gold-gradient mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-3xl mb-4">📐</div>
+                <h3 class="font-bold gold-text mb-2">Mimari Tasarım</h3>
+                <p class="text-gray-400 text-xs">Modern ve estetik projelerle şehre değer katıyoruz.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-3xl mb-4">🏗️</div>
+                <h3 class="font-bold gold-text mb-2">Güçlendirme</h3>
+                <p class="text-gray-400 text-xs">Mevcut yapılarınızı depreme karşı en üst seviyede koruyoruz.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-3xl mb-4">⚖️</div>
+                <h3 class="font-bold gold-text mb-2">Hukuki Destek</h3>
+                <p class="text-gray-400 text-xs">Kentsel dönüşüm mevzuatında tüm haklarınızı koruyoruz.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-3xl mb-4">💰</div>
+                <h3 class="font-bold gold-text mb-2">Finansman</h3>
+                <p class="text-gray-400 text-xs">Düşük faizli krediler ve ödeme planlarında rehberlik.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-3xl mb-4">🔑</div>
+                <h3 class="font-bold gold-text mb-2">Anahtar Teslim</h3>
+                <p class="text-gray-400 text-xs">Yıkımdan taşınmaya kadar her süreçte yanınızdayız.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hesapla" class="py-20 bg-zinc-950 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="font-luxury text-4xl gold-text mb-4">Dijital Analiz Merkezi</h2>
-                <p class="text-gray-400">Projenizin tahmini maliyetlerini anında hesaplayın.</p>
-            </div>
-            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl h-[700px] md:h-[800px]">
-                <iframe 
-                    src="https://allinone.resimo.com/client/test/brabank/#/?app=3&b=E&a=E.5.5&lang=en&area-unit=ft&currency=USD" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0"
-                    class="bg-white">
-                </iframe>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3">
+                    <h2 class="font-luxury text-4xl gold-text mb-6">Nasıl Hesaplanır?</h2>
+                    <ul class="space-y-6 text-gray-300">
+                        <li class="flex gap-4">
+                            <span class="gold-gradient w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-black font-bold text-sm">1</span>
+                            <p>Aracın sağ üstünden <b>metrekare</b> birimini seçin.</p>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="gold-gradient w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-black font-bold text-sm">2</span>
+                            <p>Bina tipinizi (Apartman, Müstakil) işaretleyin.</p>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="gold-gradient w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-black font-bold text-sm">3</span>
+                            <p>Tahmini kat sayısını girerek maliyet analizini görün.</p>
+                        </li>
+                    </ul>
+                    <div class="mt-10 p-4 border-l-4 border-yellow-500 bg-white/5 italic text-sm text-gray-400">
+                        *Bu hesaplamalar ön analiz içindir. Net teklif için lütfen bizi arayın.
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 w-full h-[600px] glass-card rounded-2xl overflow-hidden bg-white">
+                    <iframe 
+                        src="https://allinone.resimo.com/client/test/brabank/#/?app=3&b=E&a=E.5.5&lang=tr&area-unit=m&currency=TRY" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-zinc-950 px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-            <div class="p-8 glass-card rounded-2xl">
-                <div class="text-4xl mb-4">🏗️</div>
-                <h3 class="text-xl font-bold mb-2 gold-text">Hızlı Dönüşüm</h3>
-                <p class="text-gray-400 font-light text-sm">Bürokratik süreçleri ve inşaatı en kısa sürede tamamlıyoruz.</p>
-            </div>
-            <div class="p-8 glass-card rounded-2xl">
-                <div class="text-4xl mb-4">💎</div>
-                <h3 class="text-xl font-bold mb-2 gold-text">Lüks Tasarım</h3>
-                <p class="text-gray-400 font-light text-sm">Sıradan binalar değil, şehrin yeni ikonlarını inşa ediyoruz.</p>
-            </div>
-            <div class="p-8 glass-card rounded-2xl">
-                <div class="text-4xl mb-4">🛡️</div>
-                <h3 class="text-xl font-bold mb-2 gold-text">%100 Güven</h3>
-                <p class="text-gray-400 font-light text-sm">En yüksek deprem yönetmeliği standartlarında malzeme kullanımı.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center text-gray-600 text-xs tracking-widest uppercase">
-        © 2024 TİMA İNŞAAT - Her Hakkı Saklıdır.
+    <footer class="py-12 border-t border-white/10 text-center">
+        <p class="gold-text font-bold mb-4 uppercase tracking-widest text-sm">TİMA İNŞAAT MÜHENDİSLİK</p>
+        <p class="text-gray-500 text-xs">İstanbul, Türkiye | Tüm Hakları Saklıdır © 2026</p>
     </footer>
 
 </body>
