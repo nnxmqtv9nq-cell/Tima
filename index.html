@@ -1,132 +1,282 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TİMA PROJE | İlçe Bazlı Analiz</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { background-color: #050505; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; margin: 0; }
-        .font-luxury { font-family: 'Playfair Display', serif; }
-        .hero-section { position: relative; height: 60vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .slide-left { position: absolute; left: 0; top: 0; width: 50%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1); animation: slideInLeft 1.2s ease-out forwards; }
-        .slide-right { position: absolute; right: 0; top: 0; width: 50%; height: 100%; object-fit: cover; opacity: 0.5; animation: slideInRight 1.2s ease-out forwards; }
-        @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-        @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
-        .marquee-container { background: #b91c1c; padding: 12px 0; transform: rotate(-1deg); width: 110%; margin-left: -5%; z-index: 20; position: relative; }
-        .marquee-text { display: inline-block; white-space: nowrap; animation: scroll 30s linear infinite; font-weight: 800; font-size: 1.1rem; }
-        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-        .calc-card { background: #111; border: 1px solid #222; border-radius: 24px; padding: 24px; }
-        .input-group { background: #000; border: 1px solid #333; border-radius: 12px; padding: 12px; margin-top: 8px; }
-        .input-group select, .input-group input { background: transparent; border: none; color: white; width: 100%; font-size: 1.2rem; font-weight: bold; outline: none; }
-        option { background: #111; color: white; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lüks Kentsel Dönüşüm | Güvenli Yapılar</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark-blue:#0b1c2d;
+  --gold:#c9a24d;
+  --charcoal:#1e1e1e;
+  --light:#f7f7f7;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', sans-serif;
+}
+
+body {
+  background:#fff;
+  color:#111;
+}
+
+/* HEADER */
+header {
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(11,28,45,0.95);
+  padding:18px 6%;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  color:#fff;
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:0.5px;
+}
+
+nav ul {
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li {
+  color:#fff;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.cta-btn {
+  background:var(--gold);
+  color:#000;
+  padding:12px 22px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero {
+  height:90vh;
+  background:linear-gradient(to bottom right, rgba(11,28,45,.9), rgba(11,28,45,.6)),
+  url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;
+  display:flex;
+  align-items:center;
+  padding:0 8%;
+  color:#fff;
+}
+
+.hero h1 {
+  font-size:48px;
+  max-width:650px;
+  line-height:1.2;
+}
+
+/* BRAND SHOWCASE */
+.brands {
+  background:#f8f9fa;
+  padding:60px 0;
+  overflow:hidden;
+}
+
+.brands h2 {
+  text-align:center;
+  margin-bottom:40px;
+  font-size:24px;
+}
+
+.brand-track {
+  display:flex;
+  gap:80px;
+  animation:scroll 20s linear infinite;
+}
+
+.brand-track img {
+  height:50px;
+  filter:grayscale(100%);
+  opacity:0.85;
+}
+
+@keyframes scroll {
+  from { transform:translateX(0); }
+  to { transform:translateX(-50%); }
+}
+
+/* TECH SPEC */
+.tech {
+  padding:100px 8%;
+  background:#fff;
+}
+
+.tech h2 {
+  text-align:center;
+  margin-bottom:60px;
+  font-size:32px;
+}
+
+.tech-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+.tech-card {
+  background:#fff;
+  border:1px solid #eee;
+  padding:40px 30px;
+  text-align:center;
+  border-radius:16px;
+  transition:.3s;
+}
+
+.tech-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.tech-card img {
+  height:60px;
+  margin-bottom:20px;
+}
+
+.tech-card h3 {
+  font-size:20px;
+}
+
+/* 3D SECTION */
+.viewer {
+  background:var(--dark-blue);
+  color:#fff;
+  padding:120px 8%;
+  text-align:center;
+}
+
+.viewer-box {
+  margin-top:40px;
+  height:380px;
+  border:2px dashed var(--gold);
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  opacity:0.8;
+}
+
+/* CTA */
+.final-cta {
+  background:linear-gradient(to right, var(--dark-blue), #000);
+  padding:80px 8%;
+  text-align:center;
+  color:#fff;
+}
+
+.final-cta h2 {
+  font-size:36px;
+  margin-bottom:30px;
+}
+
+/* FOOTER */
+footer {
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1 {
+    font-size:34px;
+  }
+  nav ul {
+    display:none;
+  }
+}
+</style>
 </head>
+
 <body>
 
-    <header class="hero-section">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000" class="slide-left">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000" class="slide-right">
-        <div class="relative z-10 text-center">
-            <h1 class="font-luxury text-7xl md:text-9xl italic leading-none">TİMA <span class="text-red-600">PROJE</span></h1>
-            <p class="tracking-[0.5em] uppercase text-gray-400 mt-4 text-xs">İlçe Bazlı Dönüşüm Analizi</p>
-        </div>
-    </header>
+<header>
+  <nav>
+    <div class="logo">LÜKS YAPI</div>
+    <ul>
+      <li>Projeler</li>
+      <li>Kentsel Dönüşüm</li>
+      <li>Teknik Şartname</li>
+      <li>İletişim</li>
+    </ul>
+    <a href="#" class="cta-btn">Ücretsiz Analiz</a>
+  </nav>
+</header>
 
-    <div class="marquee-container my-10">
-        <div class="marquee-text">🏗️ C30/37 BETON — 🍳 SIEMENS ANKASTRE — 🧱 İÇDAŞ ÇELİK — 🪟 EGEPEN ANTRASİT — 🏗️ 2026 DEPREM YÖNETMELİĞİ —</div>
+<section class="hero">
+  <h1>Geleceğin Güvenli Yapıları, Bugünün Lüksüyle Buluşuyor</h1>
+</section>
+
+<section class="brands">
+  <h2>Kalite Standartlarımız: Sadece En İyi Markalarla Çalışıyoruz</h2>
+  <div class="brand-track">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Vitra_logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Siemens-logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Schneider_Electric_logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Knauf_Logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Vitra_logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Siemens-logo.svg">
+  </div>
+</section>
+
+<section class="tech">
+  <h2>Teknik Şartname Şeffaflığı</h2>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+      <h3>Laminat & Seramik Zeminler</h3>
     </div>
+    <div class="tech-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+      <h3>Akıllı Ev Sistemleri</h3>
+    </div>
+    <div class="tech-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2917/2917990.png">
+      <h3>Dış Cephe Mantolama</h3>
+    </div>
+  </div>
+</section>
 
-    <section class="max-w-6xl mx-auto p-6 mb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            <div class="lg:col-span-2 space-y-6">
-                <div class="calc-card">
-                    <h3 class="text-red-600 font-bold uppercase text-xs mb-4">📍 1. Adım: Konum Seçin</h3>
-                    <div class="input-group">
-                        <label class="text-[10px] text-gray-500 uppercase">Bulunduğunuz İlçe</label>
-                        <select id="ilceSecimi" onchange="analizEt()">
-                            <option value="2.0">Kadıköy (Emsal: 2.0)</option>
-                            <option value="1.5">Beşiktaş (Emsal: 1.5)</option>
-                            <option value="2.5">Üsküdar (Emsal: 2.5)</option>
-                            <option value="1.8">Maltepe (Emsal: 1.8)</option>
-                            <option value="2.2">Kartal (Emsal: 2.2)</option>
-                        </select>
-                    </div>
-                </div>
+<section class="viewer">
+  <h2>360° Dış Cephe İncelemesi</h2>
+  <div class="viewer-box">
+    3D / 360° Bina Görüntüleyici Buraya Entegre Edilecek
+  </div>
+</section>
 
-                <div class="calc-card">
-                    <h3 class="text-red-600 font-bold uppercase text-xs mb-4">📐 2. Adım: Arsa Bilgisi</h3>
-                    <div class="input-group">
-                        <label class="text-[10px] text-gray-500 uppercase">Toplam Arsa Alanı (m²)</label>
-                        <input type="number" id="arsaAlani" value="1000" oninput="analizEt()">
-                    </div>
-                </div>
+<section class="final-cta">
+  <h2>Ücretsiz Risk Analizi ve Teklif Al</h2>
+  <a href="#" class="cta-btn">Hemen Başvur</a>
+</section>
 
-                <div class="calc-card">
-                    <h3 class="text-red-600 font-bold uppercase text-xs mb-4">🏢 3. Adım: Yeni Bina Dağılımı</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-black/50 p-4 rounded-xl border border-zinc-800 text-center">
-                            <span class="text-2xl font-bold text-red-600 block" id="ikiArtiBirAdet">0</span>
-                            <span class="text-[10px] text-gray-500 uppercase">2+1 Daire</span>
-                        </div>
-                        <div class="bg-black/50 p-4 rounded-xl border border-zinc-800 text-center">
-                            <span class="text-2xl font-bold text-red-600 block" id="ucArtiBirAdet">0</span>
-                            <span class="text-[10px] text-gray-500 uppercase">3+1 Daire</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<footer>
+  © 2026 Lüks Yapı | Kentsel Dönüşüm & Premium İnşaat
+</footer>
 
-            <div class="space-y-6">
-                <div class="calc-card text-center">
-                    <h3 class="text-gray-500 text-[10px] uppercase mb-2 italic">Hesaplanan İnşaat Alanı</h3>
-                    <div id="toplamInsaat" class="text-4xl font-luxury text-white">0 m²</div>
-                    <canvas id="dagilimChart" class="mt-6"></canvas>
-                </div>
-                
-                <div class="bg-red-600 p-6 rounded-3xl text-center shadow-lg">
-                    <p class="text-[10px] uppercase font-bold opacity-80">Tahmini Proje Değeri</p>
-                    <div id="projeDegeri" class="text-3xl font-luxury mt-1">0 TL</div>
-                    <a href="https://wa.me/905XXXXXXXXX" class="block w-full bg-white text-red-600 font-bold py-3 rounded-xl mt-4 text-sm uppercase">Hemen Teklif Al</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <script>
-        let myChart;
-        function analizEt() {
-            const emsal = parseFloat(document.getElementById('ilceSecimi').value);
-            const arsa = document.getElementById('arsaAlani').value;
-            const toplamInsaat = arsa * emsal;
-            
-            const ikiArtiBir = Math.floor((toplamInsaat * 0.4) / 110);
-            const ucArtiBir = Math.floor((toplamInsaat * 0.6) / 145);
-
-            document.getElementById('toplamInsaat').innerText = Math.floor(toplamInsaat).toLocaleString() + ' m²';
-            document.getElementById('ikiArtiBirAdet').innerText = ikiArtiBir;
-            document.getElementById('ucArtiBirAdet').innerText = ucArtiBir;
-            document.getElementById('projeDegeri').innerText = (toplamInsaat * 45000).toLocaleString() + ' TL';
-
-            const ctx = document.getElementById('dagilimChart').getContext('2d');
-            if (myChart) myChart.destroy();
-            myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    datasets: [{
-                        data: [ikiArtiBir, ucArtiBir],
-                        backgroundColor: ['#b91c1c', '#333'],
-                        borderWidth: 0
-                    }]
-                },
-                options: { cutout: '80%', plugins: { legend: { display: false } } }
-            });
-        }
-        window.onload = analizEt;
-    </script>
 </body>
 </html>
