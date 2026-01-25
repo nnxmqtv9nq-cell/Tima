@@ -1,210 +1,102 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TİMA PROJE – Kentsel Dönüşüm</title>
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    section { padding: 100px 20px; }
-
-    h1, h2 {
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2rem; }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .btn {
-      background: #b11226;
-      color: #fff;
-      border: none;
-      padding: 14px 36px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 30px;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.9)),
-        url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1600&q=80')
-        center / cover;
-      display: flex;
-      align-items: center;
-    }
-
-    /* BEFORE AFTER */
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .before-after div {
-      height: 260px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 8px;
-    }
-
-    /* 3D PLACEHOLDER */
-    .three-box {
-      height: 360px;
-      background: linear-gradient(135deg, #1a1a1a, #111);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 18px;
-    }
-
-    /* CARDS */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: #151515;
-      padding: 24px;
-      border-radius: 10px;
-    }
-
-    /* BRANDS */
-    .brands {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .brand {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 8px;
-      opacity: .85;
-    }
-
-    /* FOOTER CTA */
-    .cta {
-      background: #000;
-    }
-
-    .cities {
-      opacity: .6;
-      margin-top: 20px;
-    }
-
-    @media(max-width: 768px) {
-      h1 { font-size: 2.2rem; }
-      .before-after { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>Tima Proje – Kentsel Dönüşümde Yeni Hayat</title>
+  <meta name="description" content="Binanızı depreme dayanıklı, modern ve enerji verimli hale getirin. Devlet destekleriyle risksiz dönüşüm!"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- AOS Animasyon için -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body>
+<body class="bg-gradient-to-b from-gray-50 to-white text-gray-800 font-sans">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Binanızın dönüşüm senaryosunu görün</h1>
-      <button class="btn">Senaryoyu Başlat</button>
+  <!-- Hero Section -->
+  <header class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <!-- Before/After arka plan örneği - gerçek projede video veya slider olur -->
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80" alt="Eski bina" class="object-cover w-full h-full brightness-50"/>
     </div>
-  </section>
+    <div class="relative z-10 text-center text-white px-6">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Binanızı Geleceğe Taşıyın</h1>
+      <p class="text-xl md:text-3xl mb-10 max-w-3xl mx-auto">Depreme dayanıklı • Modern yaşam • Devlet destekli kentsel dönüşüm</p>
+      <a href="#senaryo" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-5 px-12 rounded-full text-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+        Senaryomu Hemen Gör <i class="fas fa-arrow-right ml-3"></i>
+      </a>
+    </div>
+  </header>
 
-  <!-- BEFORE / AFTER -->
-  <section>
-    <div class="container">
-      <h2>Önce / Sonra</h2>
-      <div class="before-after">
-        <div style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80')"></div>
-        <div style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80')"></div>
+  <!-- Yapı Senaryosu -->
+  <section id="senaryo" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">Dönüşüm Senaryonuz</h2>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- 3D / Öncesi-Sonrası Alanı -->
+        <div data-aos="fade-right">
+          <h3 class="text-3xl font-semibold mb-6">Önce → Sonra</h3>
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Buraya gerçek before/after slider eklenebilir -->
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80" alt="Yeni bina" class="w-full h-96 object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+              <p class="text-white text-2xl font-bold">Yeni Hayat Başlıyor</p>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <h3 class="text-3xl font-semibold mb-6">3D Yapı Simülasyonu</h3>
+          <p class="text-lg mb-6">Binanızın deprem sonrası nasıl görüneceğini üç boyutlu olarak inceleyin.</p>
+          <!-- Three.js veya model-viewer buraya gelecek -->
+          <div class="bg-gray-200 h-96 rounded-xl flex items-center justify-center text-gray-500">
+            3D Model Alanı (Three.js / GLB yüklenecek)
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 3D -->
-  <section>
-    <div class="container">
-      <h2>Yapı Senaryosu</h2>
-      <div class="three-box">
-        3D Yapı Simülasyonu
-      </div>
-      <p style="opacity:.6; margin-top:16px;">
-        Bu görsel bir senaryo anlatımıdır
-      </p>
-    </div>
-  </section>
-
-  <!-- COST SCENARIO -->
-  <section style="background:#111">
-    <div class="container">
-      <h2>Daire İçi Senaryo</h2>
-      <div class="cards">
-        <div class="card">Mevcut Daire Durumu</div>
-        <div class="card">Devlet Destekleri</div>
-        <div class="card">Net Dönüşüm Senaryosu</div>
-      </div>
-      <p style="opacity:.5; margin-top:20px;">
-        Bu bir ödeme planı değildir.
-      </p>
-    </div>
-  </section>
-
-  <!-- BRANDS -->
-  <section>
-    <div class="container">
-      <h2>Kullanılan Yapı Markaları</h2>
-      <div class="brands">
-        <div class="brand">Vitra</div>
-        <div class="brand">Schneider</div>
-        <div class="brand">Rehau</div>
-        <div class="brand">Knauf</div>
-        <div class="brand">Siemens</div>
-      </div>
-      <p style="opacity:.5; margin-top:20px;">
-        Kullanılan markalar projeye göre değişebilir.
-      </p>
-    </div>
-  </section>
-
-  <!-- TURKEY -->
-  <section>
-    <div class="container">
-      <h2>Türkiye Geneli</h2>
-      <div class="cities">
-        İstanbul · Ankara · İzmir · Bursa · Gaziantep · Adana
+  <!-- Daire İçi & Markalar -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-10">
+        <div data-aos="zoom-in">
+          <h3 class="text-2xl font-bold mb-4">Modern Daire İçi</h3>
+          <p class="text-gray-600">Ferah, aydınlık, akıllı ev sistemleri ile donatılmış yaşam alanları.</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="text-2xl font-bold mb-4">Kullanılan Kaliteli Markalar</h3>
+          <ul class="grid grid-cols-2 gap-4 text-lg">
+            <li>Vitra</li><li>Schneider</li><li>Rehau</li><li>Knauf</li><li>Siemens</li>
+          </ul>
+          <p class="text-sm text-gray-500 mt-4">*Markalar projeye göre değişebilir</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <h3 class="text-2xl font-bold mb-4">Devlet Destekleri 2026</h3>
+          <p class="text-lg">Kira yardımı • Kat karşılığı avantajlar • Vergi muafiyetleri</p>
+          <a href="#" class="text-blue-600 font-medium mt-4 inline-block">Güncel destekleri öğren →</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container">
-      <h2>Binanız için senaryo görmek ister misiniz?</h2>
-      <button class="btn">Senaryomu Gör</button>
+  <!-- Şehirler & CTA -->
+  <section class="py-16 bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-10">Türkiye'nin Her Yerinde Yanınızdayız</h2>
+      <div class="flex flex-wrap justify-center gap-6 text-xl">
+        <span>İstanbul</span><span>Ankara</span><span>İzmir</span><span>Bursa</span><span>Gaziantep</span><span>Adana</span>
+      </div>
+      <a href="tel:+905xxxxxxxxx" class="mt-12 inline-block bg-white text-indigo-900 font-bold py-6 px-16 rounded-full text-xl hover:bg-gray-100 transform hover:scale-105 transition">
+        Hemen Arayın: 0 (xxx) xxx xx xx
+      </a>
     </div>
   </section>
 
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
